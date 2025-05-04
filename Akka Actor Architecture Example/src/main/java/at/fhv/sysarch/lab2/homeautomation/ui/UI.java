@@ -56,6 +56,10 @@ public class UI extends AbstractBehavior<Void> {
             if(command[0].equals("t")) {
                 this.tempSensor.tell(new TemperatureSensor.ReadTemperature(Double.valueOf(command[1])));
             }
+            // ralph
+            if(command[0].equals("a")) {
+                this.airCondition.tell(new AirCondition.PowerMessage(Boolean.parseBoolean(command[1]))); // nicht best practice
+            }
             // TODO: process Input
         }
         getContext().getLog().info("UI done");

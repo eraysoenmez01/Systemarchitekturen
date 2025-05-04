@@ -28,7 +28,19 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         }
     }
 
+    // ralph
+    public static final class PowerMessage implements AirConditionCommand {
+        boolean powerOn;
+
+        public PowerMessage(boolean powerOn) {
+            this.powerOn = powerOn;
+        }
+    }
+
     private final String identifier;
+
+    // ralph
+    private boolean powerOn = false;
 
     public AirCondition(ActorContext<AirConditionCommand> context, String identifier) {
         super(context);
@@ -40,10 +52,37 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         return Behaviors.setup(context -> new AirCondition(context, identifier));
     }
 
+    // ralph
+    private Behavior<AirConditionCommand> processPower(PowerMessage powerMessage) {
+        getContext().getLog().info("Aircondition was powered on {}", powerMessage.powerOn);
+        this.powerOn = powerMessage.powerOn;
+        if (!powerOn) {
+            return Behaviors.receive(AirConditionCommand.class)
+                    .onMessage(PowerMessage.class, this::powerOn)
+                    .onSignal(PostStop.class, signal -> onPostStop())
+                    .build();
+        }
+        return Behaviors.same();
+    }
+
+    // ralph
+    private Behavior<AirConditionCommand> powerOn(PowerMessage powerMessage) {
+        this.powerOn = powerMessage.powerOn;
+        if (powerOn) {
+            return newReceiveBuilder()
+                    .onMessage(EnrichedTemperature.class, this::onReadTemperature)
+                    .onMessage(PowerMessage.class, this::processPower)
+                    .onSignal(PostStop.class, signal -> onPostStop())
+                    .build();
+        }
+        return Behaviors.same();
+    }
+
     @Override
     public Receive<AirConditionCommand> createReceive() {
         return newReceiveBuilder()
                 .onMessage(EnrichedTemperature.class, this::onReadTemperature)
+                .onMessage(PowerMessage.class, this::processPower)
                 .onSignal(PostStop.class, signal -> onPostStop())
                 .build();
     }
@@ -52,6 +91,11 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         getContext().getLog().info("Aircondition reading {}", r.value);
         // TODO: process temperature
 
+        if (r.value > 25) {
+            getContext().getLog().info("Aircondition activated {}", r.value);
+        } else {
+            getContext().getLog().info("Aircondition deactivated {}", r.value);
+        }
         return Behaviors.same();
     }
 
