@@ -3,30 +3,31 @@ package at.fhv.sysarch.lab2.homeautomation.ui;
 import akka.actor.typed.ActorRef;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.PostStop;
-import akka.actor.typed.javadsl.AbstractBehavior;
-import akka.actor.typed.javadsl.ActorContext;
-import akka.actor.typed.javadsl.Behaviors;
-import akka.actor.typed.javadsl.Receive;
-import at.fhv.sysarch.lab2.homeautomation.devices.AirCondition;
-import at.fhv.sysarch.lab2.homeautomation.devices.sensor.TemperatureSensor;
+import akka.actor.typed.javadsl.*;
+import at.fhv.sysarch.lab2.homeautomation.devices.env.EnvironmentManager;
+import at.fhv.sysarch.lab2.homeautomation.devices.MediaStation;
 
 import java.util.Scanner;
 
 public class UI extends AbstractBehavior<Void> {
 
-    private final ActorRef<TemperatureSensor.TemperatureCommand> tempSensor;
-    private final ActorRef<AirCondition.AirConditionCommand> airCondition;
+    private final ActorRef<EnvironmentManager.EnvironmentCommand> envManager;
+    private final ActorRef<MediaStation.MediaCommand> mediaStation;
 
-    public static Behavior<Void> create(ActorRef<TemperatureSensor.TemperatureCommand> tempSensor, ActorRef<AirCondition.AirConditionCommand> airCondition) {
-        return Behaviors.setup(context -> new UI(context, tempSensor, airCondition));
+    public static Behavior<Void> create(
+            ActorRef<EnvironmentManager.EnvironmentCommand> envManager,
+            ActorRef<MediaStation.MediaCommand> mediaStation
+    ) {
+        return Behaviors.setup(context -> new UI(context, envManager, mediaStation));
     }
 
-    private  UI(ActorContext<Void> context, ActorRef<TemperatureSensor.TemperatureCommand> tempSensor, ActorRef<AirCondition.AirConditionCommand> airCondition) {
+    private UI(ActorContext<Void> context,
+               ActorRef<EnvironmentManager.EnvironmentCommand> envManager,
+               ActorRef<MediaStation.MediaCommand> mediaStation) {
         super(context);
-        // TODO: implement actor and behavior as needed
-        // TODO: move UI initialization to appropriate place
-        this.airCondition = airCondition;
-        this.tempSensor = tempSensor;
+        this.envManager = envManager;
+        this.mediaStation = mediaStation;
+
         new Thread(this::runCommandLine).start();
 
         getContext().getLog().info("UI started");
@@ -42,26 +43,47 @@ public class UI extends AbstractBehavior<Void> {
         return this;
     }
 
-    public void runCommandLine() {
-        // TODO: Create Actor for UI Input-Handling?
+    private void runCommandLine() {
         Scanner scanner = new Scanner(System.in);
-        String[] input = null;
         String reader = "";
-
 
         while (!reader.equalsIgnoreCase("quit") && scanner.hasNextLine()) {
             reader = scanner.nextLine();
-            // TODO: change input handling
             String[] command = reader.split(" ");
-            if(command[0].equals("t")) {
-                this.tempSensor.tell(new TemperatureSensor.ReadTemperature(Double.valueOf(command[1])));
+
+            switch (command[0]) {
+                case "t": // fixe Temperatur setzen
+                    if (command.length > 1) {
+                        double temp = Double.parseDouble(command[1]);
+                        envManager.tell(new EnvironmentManager.TemperatureUpdate(temp));
+                    }
+                    break;
+                case "internal":
+                    if (command.length > 1) {
+                        boolean active = command[1].equalsIgnoreCase("on");
+                        envManager.tell(new EnvironmentManager.ToggleInternalMode(active));
+                    }
+                    break;
+                case "external":
+                    if (command.length > 1) {
+                        boolean active = command[1].equalsIgnoreCase("on");
+                        envManager.tell(new EnvironmentManager.ToggleExternalMode(active));
+                    }
+                    break;
+                case "film":
+                    if (command.length > 1) {
+                        if (command[1].equalsIgnoreCase("start")) {
+                            mediaStation.tell(new MediaStation.StartFilm());
+                        } else if (command[1].equalsIgnoreCase("stop")) {
+                            mediaStation.tell(new MediaStation.StopFilm());
+                        }
+                    }
+                    break;
+                default:
+                    System.out.println("Unbekannter Befehl: " + reader);
             }
-            // ralph
-            if(command[0].equals("a")) {
-                this.airCondition.tell(new AirCondition.PowerMessage(Boolean.parseBoolean(command[1]))); // nicht best practice
-            }
-            // TODO: process Input
         }
+
         getContext().getLog().info("UI done");
     }
 }
