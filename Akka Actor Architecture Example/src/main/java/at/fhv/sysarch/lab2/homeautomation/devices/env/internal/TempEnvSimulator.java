@@ -5,6 +5,7 @@ import akka.actor.typed.ActorRef;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.*;
 import at.fhv.sysarch.lab2.homeautomation.devices.env.EnvironmentManager;
+import at.fhv.sysarch.lab2.homeautomation.utils.FormatUtils;
 
 import java.time.Duration;
 import java.util.Random;
@@ -35,8 +36,8 @@ public class TempEnvSimulator {
             this.timers = timers;
             this.envManager = envManager;
 
-            // alle 5 Sekunden ein Tick-Event
-            timers.startTimerAtFixedRate(new Tick(), Duration.ofSeconds(5));
+            // alle 10 Sekunden ein Tick-Event
+            timers.startTimerAtFixedRate(new Tick(), Duration.ofSeconds(10));
         }
 
         @Override
@@ -48,7 +49,7 @@ public class TempEnvSimulator {
 
         private Behavior<SimCommand> onTick(Tick tick) {
             double simulatedTemp = 15 + random.nextDouble() * 15; // Temperatur zwischen 15–30 °C
-            getContext().getLog().info("Generated simulated temperature: {}", simulatedTemp);
+            getContext().getLog().info("Generated simulated temperature: {}", FormatUtils.formatTemperature(simulatedTemp));
             envManager.tell(new EnvironmentManager.TemperatureUpdate(simulatedTemp));
             return this;
         }

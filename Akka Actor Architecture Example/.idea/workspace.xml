@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50162e5d-2feb-42e7-bd4c-3489acf11e3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
@@ -17,27 +15,41 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/TemperatureSensor$ReadTemperature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/TemperatureSensor$TemperatureCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/TemperatureSensor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$OverrideBlinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$OverrideBlinds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$TempSimBehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$TempSimBehavior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$WeatherSimBehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$WeatherSimBehavior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$AirConditionCommand.class.uniqueId7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$EnrichedTemperature.class.uniqueId9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$PowerAirCondition.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$PowerMessage.class.uniqueId8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HomeAutomationController.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$ReadTemperature.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$TemperatureCommand.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UI.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$EnvironmentCommand.class.uniqueId11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$InitializeSensors.class.uniqueId16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$RequestTemperature.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$RequestWeather.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$TemperatureUpdate.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$ToggleExternalMode.class.uniqueId10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$ToggleInternalMode.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$WeatherUpdate.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager.class.uniqueId15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HomeAutomationController.class.uniqueId14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$FetchTemperature.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$ProvideTemperature.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$TemperatureCommand.class.uniqueId9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor.class.uniqueId8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor$FetchWeather.class.uniqueId13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor$ProvideWeather.class.uniqueId17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor$WeatherCommand.class.uniqueId12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor.class.uniqueId7" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,6 +97,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -132,11 +145,16 @@
       <workItem from="1746201788010" duration="11000" />
       <workItem from="1746277751770" duration="3238000" />
       <workItem from="1746383847422" duration="99000" />
-      <workItem from="1746606021478" duration="5620000" />
+      <workItem from="1746606021478" duration="7290000" />
+      <workItem from="1746617361831" duration="4109000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

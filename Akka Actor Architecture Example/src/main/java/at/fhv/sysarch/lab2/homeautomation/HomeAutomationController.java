@@ -29,11 +29,15 @@ public class HomeAutomationController extends AbstractBehavior<Void> {
         ActorRef<AirCondition.AirConditionCommand> airCondition =
                 getContext().spawn(AirCondition.create(UUID.randomUUID().toString()), "AirCondition");
 
+        ActorRef<Blinds.BlindsCommand> blinds =
+                getContext().spawn(Blinds.create(), "Blinds");
+
         ActorRef<MediaStation.MediaCommand> mediaStation =
                 getContext().spawn(MediaStation.create(), "MediaStation");
 
-        ActorRef<Blinds.BlindsCommand> blinds =
-                getContext().spawn(Blinds.create(mediaStation), "Blinds");
+// gegenseitig verbinden
+        blinds.tell(new Blinds.SetMediaStation(mediaStation));
+        mediaStation.tell(new MediaStation.SetBlinds(blinds));
 
         // Environment Manager
         ActorRef<EnvironmentManager.EnvironmentCommand> envManager =
@@ -48,6 +52,7 @@ public class HomeAutomationController extends AbstractBehavior<Void> {
 
         // Environment Manager informieren (Referenzen setzen)
         envManager.tell(new EnvironmentManager.InitializeSensors(tempSensor, weatherSensor));
+
 
 
         // UI

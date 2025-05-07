@@ -7,6 +7,7 @@ import at.fhv.sysarch.lab2.homeautomation.devices.env.internal.TempEnvSimulator;
 import at.fhv.sysarch.lab2.homeautomation.devices.env.internal.WeatherEnvSimulator;
 import at.fhv.sysarch.lab2.homeautomation.devices.sensor.TemperatureSensor;
 import at.fhv.sysarch.lab2.homeautomation.devices.sensor.WeatherSensor;
+import at.fhv.sysarch.lab2.homeautomation.utils.FormatUtils;
 
 public class EnvironmentManager extends AbstractBehavior<EnvironmentManager.EnvironmentCommand> {
 
@@ -106,7 +107,8 @@ public class EnvironmentManager extends AbstractBehavior<EnvironmentManager.Envi
 
     private Behavior<EnvironmentCommand> onTempUpdate(TemperatureUpdate msg) {
         currentTemperature = msg.value;
-        getContext().getLog().info("Temperature updated to {}", msg.value);
+        getContext().getLog().info("Temperature updated to {}", FormatUtils.formatTemperature(msg.value));
+
 
         // Neuen Wert direkt an den Sensor weitergeben
         if (tempSensor != null) {

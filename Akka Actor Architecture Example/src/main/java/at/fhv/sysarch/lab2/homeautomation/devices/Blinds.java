@@ -31,8 +31,9 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
         }
     }
 
-    public static final class OverrideBlinds implements BlindsCommand {
+    public static class OverrideBlinds implements BlindsCommand {
         public final boolean forceClosed;
+
         public OverrideBlinds(boolean forceClosed) {
             this.forceClosed = forceClosed;
         }
@@ -42,14 +43,14 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
     private boolean isClosed = false;
     private boolean forcedByFilm = false;
     private ActorRef<MediaStation.MediaCommand> mediaStation = null;
+    private String lastKnownWeather = "clear";
 
-    public static Behavior<BlindsCommand> create(ActorRef<MediaStation.MediaCommand> mediaStation) {
-        return Behaviors.setup(context -> new Blinds(context, mediaStation));
+    public static Behavior<BlindsCommand> create() {
+        return Behaviors.setup(context -> new Blinds(context));
     }
 
-    public Blinds(ActorContext<BlindsCommand> context, ActorRef<MediaStation.MediaCommand> mediaStation) {
+    public Blinds(ActorContext<BlindsCommand> context) {
         super(context);
-        this.mediaStation = mediaStation;
     }
 
     @Override
@@ -68,11 +69,31 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
 
     private Behavior<BlindsCommand> onOverrideBlinds(OverrideBlinds msg) {
         forcedByFilm = msg.forceClosed;
-        updateBlindsState(forcedByFilm ? true : null); // force close or re-evaluate
+
+        if (forcedByFilm) {
+            getContext().getLog().info("Film gestartet – Blinds {}.", isClosed ? "bereits geschlossen" : "werden geschlossen");
+            updateBlindsState(true); // immer schließen
+        } else {
+            getContext().getLog().info("Film gestoppt – Blinds werden neu bewertet (film override deaktiviert).");
+            // direkt neu bewerten mit letztem Wetter
+            return onWeatherInfo(new WeatherInfo(lastKnownWeather));
+        }
+
         return this;
     }
 
+    private void reEvaluateBlinds() {
+        if (forcedByFilm) {
+            updateBlindsState(true); // Immer schließen, wenn Film läuft
+        } else {
+            getContext().getLog().info("Blinds status re-evaluated, last known weather: {}", lastKnownWeather);
+            boolean shouldClose = lastKnownWeather.equalsIgnoreCase("sun");
+            updateBlindsState(shouldClose);
+        }
+    }
+
     private Behavior<BlindsCommand> onWeatherInfo(WeatherInfo msg) {
+        lastKnownWeather = msg.weather; // wichtig!
         if (!forcedByFilm) {
             boolean shouldClose = msg.weather.equalsIgnoreCase("sun");
             updateBlindsState(shouldClose);
@@ -82,18 +103,17 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
         return this;
     }
 
-    private void updateBlindsState(Boolean shouldClose) {
-        if (shouldClose == null) {
-            getContext().getLog().info("Blinds status re-evaluated, film override: {}", forcedByFilm);
-            return;
-        }
-
+    private void updateBlindsState(boolean shouldClose) {
         if (shouldClose != isClosed) {
             isClosed = shouldClose;
             getContext().getLog().info("Blinds {}", isClosed ? "closed" : "opened");
-            if (mediaStation != null) {
-                mediaStation.tell(new MediaStation.BlindsState(isClosed));
-            }
+        } else {
+            getContext().getLog().info("Blinds remain {}", isClosed ? "closed" : "open");
+        }
+
+        // Immer Rückmeldung an MediaStation schicken:
+        if (mediaStation != null) {
+            mediaStation.tell(new MediaStation.BlindsState(isClosed));
         }
     }
 }

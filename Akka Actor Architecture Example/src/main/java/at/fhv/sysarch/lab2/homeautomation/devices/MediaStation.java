@@ -57,6 +57,7 @@ public class MediaStation extends AbstractBehavior<MediaStation.MediaCommand> {
 
     private Behavior<MediaCommand> onBlindsState(BlindsState msg) {
         this.blindsClosed = msg.blindsClosed;
+        getContext().getLog().info("MediaStation received blinds state: {}", msg.blindsClosed);
         return this;
     }
 

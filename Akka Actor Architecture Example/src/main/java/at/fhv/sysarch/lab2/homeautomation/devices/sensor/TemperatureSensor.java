@@ -5,6 +5,7 @@ import akka.actor.typed.*;
 import akka.actor.typed.javadsl.*;
 import at.fhv.sysarch.lab2.homeautomation.devices.AirCondition;
 import at.fhv.sysarch.lab2.homeautomation.devices.env.EnvironmentManager;
+import at.fhv.sysarch.lab2.homeautomation.utils.FormatUtils;
 
 import java.time.Duration;
 
@@ -57,7 +58,7 @@ public class TemperatureSensor extends AbstractBehavior<TemperatureSensor.Temper
     }
 
     private Behavior<TemperatureCommand> onProvideTemperature(ProvideTemperature msg) {
-        getContext().getLog().info("Received provided temperature: {}", msg.value);
+        getContext().getLog().info("Received provided temperature: {}", FormatUtils.formatTemperature(msg.value));
         airCondition.tell(new AirCondition.EnrichedTemperature(msg.value, "Celsius"));
         return this;
     }

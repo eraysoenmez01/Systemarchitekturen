@@ -58,6 +58,12 @@ public class UI extends AbstractBehavior<Void> {
                         envManager.tell(new EnvironmentManager.TemperatureUpdate(temp));
                     }
                     break;
+                case "w": // Wetter setzen
+                    if (command.length > 1) {
+                        String weather = command[1];
+                        envManager.tell(new EnvironmentManager.WeatherUpdate(weather));
+                    }
+                    break;
                 case "internal":
                     if (command.length > 1) {
                         boolean active = command[1].equalsIgnoreCase("on");

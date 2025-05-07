@@ -6,6 +6,7 @@ import akka.actor.typed.javadsl.AbstractBehavior;
 import akka.actor.typed.javadsl.ActorContext;
 import akka.actor.typed.javadsl.Behaviors;
 import akka.actor.typed.javadsl.Receive;
+import at.fhv.sysarch.lab2.homeautomation.utils.FormatUtils;
 
 public class AirCondition extends AbstractBehavior<AirCondition.AirConditionCommand> {
     public interface AirConditionCommand {}
@@ -88,13 +89,13 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
     }
 
     private Behavior<AirConditionCommand> onReadTemperature(EnrichedTemperature r) {
-        getContext().getLog().info("Aircondition reading {}", r.value);
+        getContext().getLog().info("Aircondition reading {}", FormatUtils.formatTemperature(r.value));
         // TODO: process temperature
 
         if (r.value > 25) {
-            getContext().getLog().info("Aircondition activated {}", r.value);
+            getContext().getLog().info("Aircondition activated {}", FormatUtils.formatTemperature(r.value));
         } else {
-            getContext().getLog().info("Aircondition deactivated {}", r.value);
+            getContext().getLog().info("Aircondition deactivated {}", FormatUtils.formatTemperature(r.value));
         }
         return Behaviors.same();
     }

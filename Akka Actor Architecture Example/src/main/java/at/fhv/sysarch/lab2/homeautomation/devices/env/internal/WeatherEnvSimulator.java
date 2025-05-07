@@ -33,7 +33,7 @@ public class WeatherEnvSimulator {
             this.timers = timers;
             this.envManager = envManager;
 
-            timers.startTimerAtFixedRate(new Tick(), Duration.ofSeconds(5));
+            timers.startTimerAtFixedRate(new Tick(), Duration.ofSeconds(10));
         }
 
         @Override
