@@ -7,7 +7,6 @@ import at.fhv.sysarch.lab2.homeautomation.devices.AirCondition;
 import at.fhv.sysarch.lab2.homeautomation.devices.env.EnvironmentManager;
 import at.fhv.sysarch.lab2.homeautomation.utils.FormatUtils;
 
-import java.time.Duration;
 
 public class TemperatureSensor extends AbstractBehavior<TemperatureSensor.TemperatureCommand> {
 

@@ -29,7 +29,6 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         }
     }
 
-    // ralph
     public static final class PowerMessage implements AirConditionCommand {
         boolean powerOn;
 
@@ -40,7 +39,6 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
 
     private final String identifier;
 
-    // ralph
     private boolean powerOn = false;
 
     public AirCondition(ActorContext<AirConditionCommand> context, String identifier) {
@@ -53,7 +51,6 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         return Behaviors.setup(context -> new AirCondition(context, identifier));
     }
 
-    // ralph
     private Behavior<AirConditionCommand> processPower(PowerMessage powerMessage) {
         getContext().getLog().info("Aircondition was powered on {}", powerMessage.powerOn);
         this.powerOn = powerMessage.powerOn;
@@ -66,7 +63,6 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         return Behaviors.same();
     }
 
-    // ralph
     private Behavior<AirConditionCommand> powerOn(PowerMessage powerMessage) {
         this.powerOn = powerMessage.powerOn;
         if (powerOn) {
@@ -90,7 +86,6 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
 
     private Behavior<AirConditionCommand> onReadTemperature(EnrichedTemperature r) {
         getContext().getLog().info("Aircondition reading {}", FormatUtils.formatTemperature(r.value));
-        // TODO: process temperature
 
         if (r.value > 25) {
             getContext().getLog().info("Aircondition activated {}", FormatUtils.formatTemperature(r.value));

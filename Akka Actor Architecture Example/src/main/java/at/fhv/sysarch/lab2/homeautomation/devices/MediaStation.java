@@ -6,7 +6,6 @@ import akka.actor.typed.javadsl.*;
 
 public class MediaStation extends AbstractBehavior<MediaStation.MediaCommand> {
 
-    // --- Commands ---
     public interface MediaCommand {}
 
     public static final class BlindsState implements MediaCommand {
@@ -31,7 +30,6 @@ public class MediaStation extends AbstractBehavior<MediaStation.MediaCommand> {
         }
     }
 
-    // --- State ---
     private boolean filmRunning = false;
     private boolean blindsClosed = false;
     private ActorRef<Blinds.BlindsCommand> blinds = null;

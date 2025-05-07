@@ -9,7 +9,6 @@ import at.fhv.sysarch.lab2.homeautomation.utils.FormatUtils;
 
 import java.time.Duration;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class TempEnvSimulator {
 
@@ -36,7 +35,7 @@ public class TempEnvSimulator {
             this.timers = timers;
             this.envManager = envManager;
 
-            // alle 10 Sekunden ein Tick-Event
+            // alle 10 Sekunden eine neue Temperatur generieren
             timers.startTimerAtFixedRate(new Tick(), Duration.ofSeconds(10));
         }
 

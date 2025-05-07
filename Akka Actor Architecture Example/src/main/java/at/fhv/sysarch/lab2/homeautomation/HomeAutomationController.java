@@ -8,8 +8,6 @@ import at.fhv.sysarch.lab2.homeautomation.devices.AirCondition;
 import at.fhv.sysarch.lab2.homeautomation.devices.Blinds;
 import at.fhv.sysarch.lab2.homeautomation.devices.MediaStation;
 import at.fhv.sysarch.lab2.homeautomation.devices.env.EnvironmentManager;
-import at.fhv.sysarch.lab2.homeautomation.devices.env.internal.TempEnvSimulator;
-import at.fhv.sysarch.lab2.homeautomation.devices.env.internal.WeatherEnvSimulator;
 import at.fhv.sysarch.lab2.homeautomation.devices.sensor.TemperatureSensor;
 import at.fhv.sysarch.lab2.homeautomation.devices.sensor.WeatherSensor;
 import at.fhv.sysarch.lab2.homeautomation.ui.UI;
@@ -25,7 +23,6 @@ public class HomeAutomationController extends AbstractBehavior<Void> {
     private HomeAutomationController(ActorContext<Void> context) {
         super(context);
 
-        // Devices
         ActorRef<AirCondition.AirConditionCommand> airCondition =
                 getContext().spawn(AirCondition.create(UUID.randomUUID().toString()), "AirCondition");
 
@@ -35,27 +32,21 @@ public class HomeAutomationController extends AbstractBehavior<Void> {
         ActorRef<MediaStation.MediaCommand> mediaStation =
                 getContext().spawn(MediaStation.create(), "MediaStation");
 
-// gegenseitig verbinden
         blinds.tell(new Blinds.SetMediaStation(mediaStation));
         mediaStation.tell(new MediaStation.SetBlinds(blinds));
 
-        // Environment Manager
         ActorRef<EnvironmentManager.EnvironmentCommand> envManager =
                 getContext().spawn(EnvironmentManager.create(), "EnvironmentManager");
 
-        // Sensoren
         ActorRef<TemperatureSensor.TemperatureCommand> tempSensor =
                 getContext().spawn(TemperatureSensor.create(envManager, airCondition), "TemperatureSensor");
 
         ActorRef<WeatherSensor.WeatherCommand> weatherSensor =
                 getContext().spawn(WeatherSensor.create(envManager, blinds), "WeatherSensor");
 
-        // Environment Manager informieren (Referenzen setzen)
         envManager.tell(new EnvironmentManager.InitializeSensors(tempSensor, weatherSensor));
 
 
-
-        // UI
         ActorRef<Void> ui = getContext().spawn(
                 UI.create(envManager, mediaStation), "UI");
 

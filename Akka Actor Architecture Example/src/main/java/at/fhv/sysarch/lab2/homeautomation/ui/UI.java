@@ -52,13 +52,13 @@ public class UI extends AbstractBehavior<Void> {
             String[] command = reader.split(" ");
 
             switch (command[0]) {
-                case "t": // fixe Temperatur setzen
+                case "t":
                     if (command.length > 1) {
                         double temp = Double.parseDouble(command[1]);
                         envManager.tell(new EnvironmentManager.TemperatureUpdate(temp));
                     }
                     break;
-                case "w": // Wetter setzen
+                case "w":
                     if (command.length > 1) {
                         String weather = command[1];
                         envManager.tell(new EnvironmentManager.WeatherUpdate(weather));

@@ -5,7 +5,6 @@ import akka.actor.typed.javadsl.*;
 import at.fhv.sysarch.lab2.homeautomation.devices.env.EnvironmentManager;
 import at.fhv.sysarch.lab2.homeautomation.devices.Blinds;
 
-import java.time.Duration;
 
 public class WeatherSensor extends AbstractBehavior<WeatherSensor.WeatherCommand> {
 

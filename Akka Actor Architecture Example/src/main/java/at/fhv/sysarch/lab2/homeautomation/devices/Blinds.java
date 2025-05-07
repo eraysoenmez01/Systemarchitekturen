@@ -6,7 +6,6 @@ import akka.actor.typed.javadsl.*;
 
 public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
 
-    // --- Commands ---
     public interface BlindsCommand {}
 
     public static final class WeatherInfo implements BlindsCommand {
@@ -39,7 +38,6 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
         }
     }
 
-    // --- State ---
     private boolean isClosed = false;
     private boolean forcedByFilm = false;
     private ActorRef<MediaStation.MediaCommand> mediaStation = null;
@@ -75,7 +73,6 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
             updateBlindsState(true); // immer schließen
         } else {
             getContext().getLog().info("Film gestoppt – Blinds werden neu bewertet (film override deaktiviert).");
-            // direkt neu bewerten mit letztem Wetter
             return onWeatherInfo(new WeatherInfo(lastKnownWeather));
         }
 
@@ -87,7 +84,7 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
             updateBlindsState(true); // Immer schließen, wenn Film läuft
         } else {
             getContext().getLog().info("Blinds status re-evaluated, last known weather: {}", lastKnownWeather);
-            boolean shouldClose = lastKnownWeather.equalsIgnoreCase("sun");
+            boolean shouldClose = lastKnownWeather.equalsIgnoreCase("sunny");
             updateBlindsState(shouldClose);
         }
     }
@@ -95,7 +92,7 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
     private Behavior<BlindsCommand> onWeatherInfo(WeatherInfo msg) {
         lastKnownWeather = msg.weather; // wichtig!
         if (!forcedByFilm) {
-            boolean shouldClose = msg.weather.equalsIgnoreCase("sun");
+            boolean shouldClose = msg.weather.equalsIgnoreCase("sunny");
             updateBlindsState(shouldClose);
         } else {
             getContext().getLog().info("Film läuft – Wetter ignoriert.");
@@ -111,7 +108,6 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
             getContext().getLog().info("Blinds remain {}", isClosed ? "closed" : "open");
         }
 
-        // Immer Rückmeldung an MediaStation schicken:
         if (mediaStation != null) {
             mediaStation.tell(new MediaStation.BlindsState(isClosed));
         }

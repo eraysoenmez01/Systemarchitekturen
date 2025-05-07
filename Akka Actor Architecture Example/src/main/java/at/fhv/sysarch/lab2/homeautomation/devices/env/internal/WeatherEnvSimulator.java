@@ -44,9 +44,8 @@ public class WeatherEnvSimulator {
         }
 
         private Behavior<SimCommand> onTick(Tick tick) {
-            // 0 = Sonne, 1 = Wolken, 2 = Regen, 3 = Schnee
-            int state = random.nextInt(4);
-            String[] weatherStates = {"sun", "clouds", "rain", "snow"};
+            int state = random.nextInt(5); // Simulate 5 different weather states
+            String[] weatherStates = {"sunny", "cloudy", "rain", "snow", "storm"};
             String simulatedWeather = weatherStates[state];
 
             getContext().getLog().info("Generated simulated weather: {}", simulatedWeather);
