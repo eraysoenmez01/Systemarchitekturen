@@ -70,7 +70,7 @@ public abstract class OrderServiceClient extends OrderServiceClientPowerApi impl
   
     
       
-        private final SingleResponseRequestBuilder<at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest, at.fhv.sysarch.lab2.ordermanager.Order.OrderReply> placeOrderRequestBuilder(akka.grpc.internal.InternalChannel channel){
+        private final SingleResponseRequestBuilder<at.fhv.sysarch.lab2.ordermanager.OrderRequest, at.fhv.sysarch.lab2.ordermanager.OrderReply> placeOrderRequestBuilder(akka.grpc.internal.InternalChannel channel){
           return new JavaUnaryRequestBuilder<>(placeOrderDescriptor, channel, options, settings, defaultMetadata, ec);
         }
       
@@ -82,17 +82,17 @@ public abstract class OrderServiceClient extends OrderServiceClientPowerApi impl
         /**
          * For access to method metadata use the parameterless version of placeOrder
          */
-        public java.util.concurrent.CompletionStage<at.fhv.sysarch.lab2.ordermanager.Order.OrderReply> placeOrder(at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest request) {
+        public java.util.concurrent.CompletionStage<at.fhv.sysarch.lab2.ordermanager.OrderReply> placeOrder(at.fhv.sysarch.lab2.ordermanager.OrderRequest request) {
           return placeOrder().invoke(request);
         }
 
         /**
          * Lower level "lifted" version of the method, giving access to request metadata etc.
-         * prefer placeOrder(at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest) if possible.
+         * prefer placeOrder(at.fhv.sysarch.lab2.ordermanager.OrderRequest) if possible.
          */
         
           
-            public SingleResponseRequestBuilder<at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest, at.fhv.sysarch.lab2.ordermanager.Order.OrderReply> placeOrder()
+            public SingleResponseRequestBuilder<at.fhv.sysarch.lab2.ordermanager.OrderRequest, at.fhv.sysarch.lab2.ordermanager.OrderReply> placeOrder()
           
         
         {
@@ -101,8 +101,8 @@ public abstract class OrderServiceClient extends OrderServiceClientPowerApi impl
       
 
       
-        private static MethodDescriptor<at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest, at.fhv.sysarch.lab2.ordermanager.Order.OrderReply> placeOrderDescriptor =
-          MethodDescriptor.<at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest, at.fhv.sysarch.lab2.ordermanager.Order.OrderReply>newBuilder()
+        private static MethodDescriptor<at.fhv.sysarch.lab2.ordermanager.OrderRequest, at.fhv.sysarch.lab2.ordermanager.OrderReply> placeOrderDescriptor =
+          MethodDescriptor.<at.fhv.sysarch.lab2.ordermanager.OrderRequest, at.fhv.sysarch.lab2.ordermanager.OrderReply>newBuilder()
             .setType(
    MethodDescriptor.MethodType.UNARY 
   
@@ -110,8 +110,8 @@ public abstract class OrderServiceClient extends OrderServiceClientPowerApi impl
   
 )
             .setFullMethodName(MethodDescriptor.generateFullMethodName("at.fhv.sysarch.lab2.ordermanager.OrderService", "PlaceOrder"))
-            .setRequestMarshaller(new ProtoMarshaller<at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest>(OrderRequestSerializer))
-            .setResponseMarshaller(new ProtoMarshaller<at.fhv.sysarch.lab2.ordermanager.Order.OrderReply>(OrderReplySerializer))
+            .setRequestMarshaller(new ProtoMarshaller<at.fhv.sysarch.lab2.ordermanager.OrderRequest>(OrderRequestSerializer))
+            .setResponseMarshaller(new ProtoMarshaller<at.fhv.sysarch.lab2.ordermanager.OrderReply>(OrderReplySerializer))
             .setSampledToLocalTracing(true)
             .build();
         

@@ -1,14 +1,18 @@
+
+
 plugins {
     id 'java'
     id 'application'
     id 'com.google.protobuf' version '0.9.5'
+    id 'com.lightbend.akka.grpc.gradle' version '2.5.5'
 }
 
 group 'at.fhv.lab2'
 version '1.0-SNAPSHOT'
 
-def grpcVersion = '1.57.1'
-def protobufVersion = '3.23.4'
+def akkaVersion= '2.10.5'
+def grpcVersion = '2.5.5'
+def sslConfigVersion  = '0.6.1'
 
 java {
     toolchain {
@@ -18,52 +22,44 @@ java {
 
 repositories {
     mavenCentral()
+    maven { url 'https://repo.akka.io/maven' }
 }
 
 dependencies {
-    // gRPC Core
-    implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
-    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
-    implementation "io.grpc:grpc-stub:${grpcVersion}"
-    implementation "com.google.protobuf:protobuf-java:${protobufVersion}"
-
-    // Logging
+    implementation "com.typesafe.akka:akka-actor-typed_3:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-stream_3:${akkaVersion}"
+    implementation "com.lightbend.akka.grpc:akka-grpc-runtime_3:${grpcVersion}"
+    implementation "org.scala-lang.modules:scala-java8-compat_3:1.0.2"
     implementation 'ch.qos.logback:logback-classic:1.5.18'
-
-    // Testing
+    implementation "com.typesafe:ssl-config-core_3:${sslConfigVersion}"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly   'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+
+    testImplementation "com.typesafe.akka:akka-actor-testkit-typed_3:${akkaVersion}"
+    testImplementation "com.typesafe.akka:akka-stream-testkit_3:${akkaVersion}"
 }
 
 protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:${protobufVersion}"
-    }
-    plugins {
-        grpc {
-            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
-        }
-    }
+
+    protoc { artifact = 'com.google.protobuf:protoc:3.25.3' }
+
+    plugins { akkaGrpc {} }
+
     generateProtoTasks {
-        all().each { task ->
-            task.plugins {
-                grpc {}
-            }
+        all().configureEach {
+            builtins { java {} }
+            plugins  { akkaGrpc {} }
         }
     }
 }
 
 sourceSets {
     main {
-        proto {
-            srcDir 'src/main/proto'
-        }
-        java {
-            srcDirs += "$buildDir/generated/source/proto/main/java"
-            srcDirs += "$buildDir/generated/source/proto/main/grpc"
-        }
+        java.srcDirs += "$buildDir/generated/sources/proto/main/java"
+        java.srcDirs += "$buildDir/generated/sources/proto/main/akkaGrpc"
     }
 }
+
 
 application {
     mainClass = 'at.fhv.sysarch.lab2.ordermanager.OrderManagingSystem'
@@ -76,3 +72,4 @@ tasks.processResources {
 test {
     useJUnitPlatform()
 }
+

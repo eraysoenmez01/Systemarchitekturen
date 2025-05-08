@@ -11,18 +11,18 @@ import akka.grpc.AkkaGrpcGenerated;
 public interface OrderService {
   
   
-  java.util.concurrent.CompletionStage<at.fhv.sysarch.lab2.ordermanager.Order.OrderReply> placeOrder(at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest in);
+  java.util.concurrent.CompletionStage<at.fhv.sysarch.lab2.ordermanager.OrderReply> placeOrder(at.fhv.sysarch.lab2.ordermanager.OrderRequest in);
   
 
   static String name = "at.fhv.sysarch.lab2.ordermanager.OrderService";
-  static akka.grpc.ServiceDescription description = new akka.grpc.internal.ServiceDescriptionImpl(name, Order.getDescriptor());
+  static akka.grpc.ServiceDescription description = new akka.grpc.internal.ServiceDescriptionImpl(name, OrderProto.getDescriptor());
 
   @AkkaGrpcGenerated
   public static class Serializers {
     
-      public static ProtobufSerializer<at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest> OrderRequestSerializer = new GoogleProtobufSerializer<>(at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest.parser());
+      public static ProtobufSerializer<at.fhv.sysarch.lab2.ordermanager.OrderRequest> OrderRequestSerializer = new GoogleProtobufSerializer<>(at.fhv.sysarch.lab2.ordermanager.OrderRequest.parser());
     
-      public static ProtobufSerializer<at.fhv.sysarch.lab2.ordermanager.Order.OrderReply> OrderReplySerializer = new GoogleProtobufSerializer<>(at.fhv.sysarch.lab2.ordermanager.Order.OrderReply.parser());
+      public static ProtobufSerializer<at.fhv.sysarch.lab2.ordermanager.OrderReply> OrderReplySerializer = new GoogleProtobufSerializer<>(at.fhv.sysarch.lab2.ordermanager.OrderReply.parser());
     
   }
 }

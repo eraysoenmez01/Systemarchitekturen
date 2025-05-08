@@ -13,11 +13,11 @@ public abstract class OrderServiceClientPowerApi {
   
     /**
      * Lower level "lifted" version of the method, giving access to request metadata etc.
-     * prefer placeOrder(at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest) if possible.
+     * prefer placeOrder(at.fhv.sysarch.lab2.ordermanager.OrderRequest) if possible.
      */
     
       
-        public SingleResponseRequestBuilder<at.fhv.sysarch.lab2.ordermanager.Order.OrderRequest, at.fhv.sysarch.lab2.ordermanager.Order.OrderReply> placeOrder()
+        public SingleResponseRequestBuilder<at.fhv.sysarch.lab2.ordermanager.OrderRequest, at.fhv.sysarch.lab2.ordermanager.OrderReply> placeOrder()
       
     
     {
