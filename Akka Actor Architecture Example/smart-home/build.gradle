@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'at.fhv.lab2'
+version '1.0-SNAPSHOT'
+
+def akkaVersion = '2.10.5'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.akka.io/maven"
+    }
+}
+
+dependencies {
+    implementation "com.typesafe.akka:akka-actor_3:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-actor-typed_3:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-actor-testkit-typed_3:${akkaVersion}"
+    implementation "com.lightbend.akka:akka-stream-alpakka-mqtt_3:9.0.1"
+    implementation "com.typesafe.akka:akka-stream_3:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-testkit_3:${akkaVersion}"
+    implementation 'ch.qos.logback:logback-classic:1.5.18'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation "com.fasterxml.jackson.module:jackson-module-parameter-names:2.15.2"
+
+    // Dein gRPC Modul
+    implementation project(':order-manager')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+application {
+    mainClass = 'at.fhv.sysarch.lab2.HomeAutomationSystem'
+}
+
+tasks.named("run") {
+    standardInput = System.in
+}
+
+test {
+    useJUnitPlatform()
+}

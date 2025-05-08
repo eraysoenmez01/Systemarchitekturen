@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50162e5d-2feb-42e7-bd4c-3489acf11e3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/Assignment.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-manager/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-manager/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-manager/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-home/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-home/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-home/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-home/gradlew.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
@@ -15,85 +24,83 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$PowerMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$PowerMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$OverrideBlinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$OverrideBlinds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$SetMediaStation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$SetMediaStation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherUpdate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$BlindsState.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$BlindsState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$SetBlinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$SetBlinds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StartFilm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StartFilm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StopFilm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StopFilm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$InitializeSensors.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$InitializeSensors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestWeather.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestWeather.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$TemperatureUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$TemperatureUpdate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleExternalMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleExternalMode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleInternalMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleInternalMode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$WeatherUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$WeatherUpdate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$TempSimBehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$TempSimBehavior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$Tick.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$Tick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$WeatherSimBehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$WeatherSimBehavior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$FetchTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$FetchTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$ProvideTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$ProvideTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$FetchWeather.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$FetchWeather.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$ProvideWeather.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$ProvideWeather.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$AirConditionCommand.class.uniqueId19" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$EnrichedTemperature.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$PowerAirCondition.class.uniqueId13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition$PowerMessage.class.uniqueId10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AirCondition.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$EnvironmentCommand.class.uniqueId9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$InitializeSensors.class.uniqueId29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$RequestTemperature.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$RequestWeather.class.uniqueId18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$TemperatureUpdate.class.uniqueId15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$ToggleExternalMode.class.uniqueId8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$ToggleInternalMode.class.uniqueId14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager$WeatherUpdate.class.uniqueId20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnvironmentManager.class.uniqueId28" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HomeAutomationController.class.uniqueId27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TempEnvSimulator$SimCommand.class.uniqueId31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TempEnvSimulator$TempSimBehavior.class.uniqueId25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TempEnvSimulator$Tick.class.uniqueId12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TempEnvSimulator.class.uniqueId23" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$FetchTemperature.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$ProvideTemperature.class.uniqueId16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor$TemperatureCommand.class.uniqueId7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TemperatureSensor.class.uniqueId22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UI.class.uniqueId17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherEnvSimulator$SimCommand.class.uniqueId11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherEnvSimulator$Tick.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherEnvSimulator$WeatherSimBehavior.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherEnvSimulator.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor$FetchWeather.class.uniqueId26" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor$ProvideWeather.class.uniqueId30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor$WeatherCommand.class.uniqueId24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WeatherSensor.class.uniqueId21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/HomeAutomationSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/HomeAutomationSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$AirConditionCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$AirConditionCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$EnrichedTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$EnrichedTemperature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$PowerAirCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$PowerAirCondition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$PowerMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition$PowerMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$BlindsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$BlindsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$OverrideBlinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$OverrideBlinds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$SetMediaStation.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$SetMediaStation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds$WeatherUpdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$BlindsState.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$BlindsState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$MediaCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$MediaCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$SetBlinds.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$SetBlinds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StartFilm.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StartFilm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StopFilm.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation$StopFilm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$EnvironmentCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$EnvironmentCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$InitializeSensors.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$InitializeSensors.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestTemperature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestWeather.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$RequestWeather.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$TemperatureUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$TemperatureUpdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleExternalMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleExternalMode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleInternalMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$ToggleInternalMode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$WeatherUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager$WeatherUpdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge$BridgeCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge$BridgeCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge$Disconnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge$Disconnect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$SimCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$SimCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$TempSimBehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$TempSimBehavior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$Tick.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator$Tick.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$SimCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$SimCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$Tick.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$Tick.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$WeatherSimBehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator$WeatherSimBehavior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$FetchTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$FetchTemperature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$ProvideTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$ProvideTemperature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$TemperatureCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor$TemperatureCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$FetchWeather.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$FetchWeather.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$ProvideWeather.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$ProvideWeather.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$WeatherCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor$WeatherCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/utils/FormatUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/utils/FormatUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/resources/main/application.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/resources/main/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/HomeAutomationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/HomeAutomationSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/AirCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/Blinds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/MediaStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/EnvironmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/external/MqttBridge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/TempEnvSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/env/internal/WeatherEnvSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/TemperatureSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeatherSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhv/sysarch/lab2/homeautomation/utils/FormatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/utils/FormatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/resources/application.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/resources/logback.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +142,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "moe5859"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/eraysoenmez01/Systemarchitekturen.git",
+    "accountId": "ae3648d2-2559-4daf-a1a8-83cac8bdd99e"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -158,7 +177,7 @@
     "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "feature/testEraySeminar",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/eraysonmez/Documents/sem4/systemarchitekturn/Systemarchitekturen/Akka Actor Architecture Example",
+    "last_opened_file_path": "/Users/mesutozdemir/Documents/FHV Sem4/SystemArchitektur/Assignment/Akka Actor Architecture Example",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -168,6 +187,16 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/smart-home" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/smart-home" />
+      <recent name="$PROJECT_DIR$/order-manager" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.HomeAutomationSystem">
     <configuration name="HomeAutomationSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.fhv.sysarch.lab2.HomeAutomationSystem" />
@@ -204,6 +233,103 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Lab2Template" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Lab2Template" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Lab2Template" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="Lab2Template" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="Lab2Template" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="Lab2Template" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="Lab2Template" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Akka Actor Architecture Example [dependencies]" />
@@ -238,6 +364,7 @@
       <workItem from="1746606021478" duration="7290000" />
       <workItem from="1746617361831" duration="5567000" />
       <workItem from="1746623000469" duration="6710000" />
+      <workItem from="1746667732275" duration="1377000" />
     </task>
     <servers />
   </component>
