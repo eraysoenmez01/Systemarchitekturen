@@ -1,9 +1,8 @@
 syntax = "proto3";
-package at.fhv.sysarch.lab2.ordermanager;
-option java_multiple_files = true;
-option java_package = "at.fhv.sysarch.lab2.ordermanager";
-option java_outer_classname = "OrderProto";
 
+option java_package = "at.fhv.sysarch.lab2.ordermanager";
+option java_multiple_files = true;
+option java_outer_classname = "OrderProto";
 
 message OrderRequest {
   string name = 1;
@@ -11,10 +10,11 @@ message OrderRequest {
 }
 
 message OrderReply {
-  repeated Item items = 1;
-  double totalPrice = 2;
+  string name = 1;
+  int32 amount = 2;
+  double unitPrice = 3;
+  double totalPrice = 4;
 }
-
 message Item {
   string name = 1;
   int32 amount = 2;

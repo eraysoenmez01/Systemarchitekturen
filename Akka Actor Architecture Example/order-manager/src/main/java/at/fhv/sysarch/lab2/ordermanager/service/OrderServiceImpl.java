@@ -1,31 +1,37 @@
 package at.fhv.sysarch.lab2.ordermanager.service;
 
-import at.fhv.sysarch.lab2.ordermanager.*;
+import at.fhv.sysarch.lab2.ordermanager.OrderRequest;
+import at.fhv.sysarch.lab2.ordermanager.OrderReply;
+import at.fhv.sysarch.lab2.ordermanager.OrderService;
+import at.fhv.sysarch.lab2.ordermanager.actors.OrderProcessingActor;
 import at.fhv.sysarch.lab2.ordermanager.catalog.ProductCatalog;
+import akka.actor.typed.ActorRef;
+import akka.actor.typed.ActorSystem;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 public class OrderServiceImpl implements OrderService {
 
+    private final ActorSystem<?> system;
+    private final ProductCatalog catalog;
+
+    public OrderServiceImpl(ActorSystem<?> system) {
+        this.system = system;
+        this.catalog = new ProductCatalog();
+    }
+
     @Override
     public CompletionStage<OrderReply> placeOrder(OrderRequest request) {
-        String name = request.getName();
-        int amount = request.getAmount();
-        double unitPrice = ProductCatalog.getUnitPrice(name);
-        double totalPrice = unitPrice * amount;
+        CompletableFuture<OrderReply> future = new CompletableFuture<>();
 
-        Item item = Item.newBuilder()
-                .setName(name)
-                .setAmount(amount)
-                .setPrice(unitPrice)
-                .build();
+        ActorRef<OrderProcessingActor.PlaceOrder> orderActor = system.systemActorOf(
+                OrderProcessingActor.create(catalog, future),
+                "order-" + request.getName(),
+                akka.actor.typed.Props.empty()
+        );
 
-        OrderReply reply = OrderReply.newBuilder()
-                .addItems(item)
-                .setTotalPrice(totalPrice)
-                .build();
-
-        return CompletableFuture.completedFuture(reply);
+        orderActor.tell(new OrderProcessingActor.PlaceOrder(request, future));
+        return future;
     }
 }

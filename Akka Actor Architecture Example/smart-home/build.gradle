@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.google.protobuf' version '0.9.4' // gRPC support
 }
 
 group 'at.fhv.lab2'
@@ -26,9 +27,17 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation "com.fasterxml.jackson.module:jackson-module-parameter-names:2.15.2"
     implementation "org.json:json:20230227"
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
 
 
-    // Dein gRPC Modul
+    // gRPC + Protobuf
+    implementation 'io.grpc:grpc-netty-shaded:1.61.0'
+    implementation 'io.grpc:grpc-protobuf:1.61.0'
+    implementation 'io.grpc:grpc-stub:1.61.0'
+    implementation 'com.google.protobuf:protobuf-java:3.25.1'
+    implementation "com.lightbend.akka.grpc:akka-grpc-runtime_3:2.3.0"
+
+    // Dein gRPC Modul (falls du darauf zugreifst)
     implementation project(':order-manager')
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
@@ -45,4 +54,38 @@ tasks.named("run") {
 
 test {
     useJUnitPlatform()
+}
+
+// gRPC-Protobuf-Konfiguration
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.25.1"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.61.0"
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                grpc {}
+            }
+        }
+    }
+}
+
+sourceSets {
+    main {
+        proto {
+            srcDir 'src/main/proto'
+        }
+        java {
+            srcDirs 'build/generated/source/proto/main/java', 'build/generated/source/proto/main/grpc'
+        }
+    }
+}
+
+tasks.withType(ProcessResources).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

@@ -1,6 +1,7 @@
 package at.fhv.sysarch.lab2.homeautomation;
 
 import akka.actor.typed.ActorRef;
+import akka.actor.typed.ActorSystem;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.PostStop;
 import akka.actor.typed.javadsl.*;
@@ -12,7 +13,12 @@ import at.fhv.sysarch.lab2.homeautomation.devices.fridge.Fridge;
 import at.fhv.sysarch.lab2.homeautomation.devices.sensor.TemperatureSensor;
 import at.fhv.sysarch.lab2.homeautomation.devices.sensor.WeatherSensor;
 import at.fhv.sysarch.lab2.homeautomation.ui.UI;
+import at.fhv.sysarch.lab2.ordermanager.OrderRequest;
+import at.fhv.sysarch.lab2.ordermanager.OrderService;
+import akka.grpc.GrpcClientSettings;
+import at.fhv.sysarch.lab2.ordermanager.OrderServiceClient;
 
+import java.time.Duration;
 import java.util.UUID;
 
 public class HomeAutomationController extends AbstractBehavior<Void> {
@@ -23,6 +29,21 @@ public class HomeAutomationController extends AbstractBehavior<Void> {
 
     private HomeAutomationController(ActorContext<Void> context) {
         super(context);
+
+        ActorSystem<Void> system = context.getSystem();
+
+        GrpcClientSettings settings = GrpcClientSettings.connectToServiceAt("127.0.0.1", 50051, system).withTls(false).withDeadline(Duration.ofSeconds(5));
+        OrderService orderServiceClient = OrderServiceClient.create(settings, system);
+        //connection check to server
+        orderServiceClient.placeOrder(OrderRequest.newBuilder()
+                        .setName("eier")
+                        .setAmount(2)
+                        .build())
+                .thenAccept(reply -> System.out.println("Verbindung OK!"))
+                .exceptionally(ex -> {
+                    System.out.println("Connection test failed: " + ex.getMessage());
+                    return null;
+                });
 
         ActorRef<AirCondition.AirConditionCommand> airCondition =
                 getContext().spawn(AirCondition.create(UUID.randomUUID().toString()), "AirCondition");
@@ -47,7 +68,7 @@ public class HomeAutomationController extends AbstractBehavior<Void> {
 
         envManager.tell(new EnvironmentManager.InitializeSensors(tempSensor, weatherSensor));
 
-        ActorRef<Fridge.FridgeCommand> fridge = context.spawn(Fridge.create(), "fridge");
+        ActorRef<Fridge.FridgeCommand> fridge = context.spawn(Fridge.create(orderServiceClient), "fridge");
 
         ActorRef<Void> ui = getContext().spawn(UI.create(envManager, mediaStation, fridge), "UI");
         getContext().getLog().info("HomeAutomation Application started");

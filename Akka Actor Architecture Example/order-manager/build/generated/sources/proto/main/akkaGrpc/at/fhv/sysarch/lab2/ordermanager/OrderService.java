@@ -14,7 +14,7 @@ public interface OrderService {
   java.util.concurrent.CompletionStage<at.fhv.sysarch.lab2.ordermanager.OrderReply> placeOrder(at.fhv.sysarch.lab2.ordermanager.OrderRequest in);
   
 
-  static String name = "at.fhv.sysarch.lab2.ordermanager.OrderService";
+  static String name = "OrderService";
   static akka.grpc.ServiceDescription description = new akka.grpc.internal.ServiceDescriptionImpl(name, OrderProto.getDescriptor());
 
   @AkkaGrpcGenerated

@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50162e5d-2feb-42e7-bd4c-3489acf11e3e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/actors/OrderProcessingActor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/SpaceSensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeightSensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-home/src/main/proto/Order.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
@@ -16,17 +20,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-manager/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderServiceClientPowerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderServiceClientPowerApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/java/at/fhv/sysarch/lab2/ordermanager/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/libs/order-processor-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/reports/problems/problems-report.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/order-manager/build/resources/main/Order.proto" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/resources/main/Order.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/scripts/akka-grpc-codegen_2.12-2.5.5-assembly-generateProto-trampoline.sh" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/scripts/akka-grpc-codegen_2.12-2.5.5-assembly-generateProto-trampoline.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/OrderManagingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/OrderManagingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/catalog/ProductCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/catalog/ProductCatalog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/service/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-manager/src/main/proto/Order.proto" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/proto/Order.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smart-home/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build.gradle" afterDir="false" />
@@ -34,6 +36,11 @@
       <change beforePath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smart-home/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Receipt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +94,10 @@
     &quot;accountId&quot;: &quot;ae3648d2-2559-4daf-a1a8-83cac8bdd99e&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -98,43 +109,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HomeAutomationSystem.executor": "Run",
-    "Gradle.Akka Actor Architecture Example [:at.fhv.sysarch.lab2.HomeAutomationSystem.main()].executor": "Run",
-    "Gradle.Akka Actor Architecture Example [:at.fhv.sysarch.lab2.homeautomation.utils.MqttTestConnection.main()].executor": "Run",
-    "Gradle.Akka Actor Architecture Example [dependencies].executor": "Run",
-    "Gradle.Akka Actor Architecture Example.executor": "Debug",
-    "Gradle.Akka Actor Architecture Example:order-manager [:order-manager:at.fhv.sysarch.lab2.ordermanager.OrderManagingSystem.main()].executor": "Run",
-    "Gradle.Build Akka Actor Architecture Example.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHELLCHECK.PATH": "/Users/eraysonmez/Library/Application Support/JetBrains/IntelliJIdea2024.2/plugins/Shell Script/shellcheck",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "feature/mesutFridge",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/mesutozdemir/Documents/FHV Sem4/SystemArchitektur/Assignment/Akka Actor Architecture Example",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HomeAutomationSystem.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Akka Actor Architecture Example [:at.fhv.sysarch.lab2.HomeAutomationSystem.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Akka Actor Architecture Example [:at.fhv.sysarch.lab2.homeautomation.utils.MqttTestConnection.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Akka Actor Architecture Example [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Akka Actor Architecture Example.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.Akka Actor Architecture Example:order-manager [:order-manager:at.fhv.sysarch.lab2.ordermanager.OrderManagingSystem.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Akka Actor Architecture Example.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;/Users/eraysonmez/Library/Application Support/JetBrains/IntelliJIdea2024.2/plugins/Shell Script/shellcheck&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/mesutFridge&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mesutozdemir/Documents/FHV Sem4/SystemArchitektur/Assignment/Akka Actor Architecture Example/smart-home/src/main/proto&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/smart-home/src/main/proto" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/smart-home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/smart-home/src/main" />
       <recent name="$PROJECT_DIR$/smart-home" />
       <recent name="$PROJECT_DIR$/order-manager" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Akka Actor Architecture Example [dependencies]">
+  <component name="RunManager" selected="Application.OrderManagingSystem">
     <configuration name="HomeAutomationSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.fhv.sysarch.lab2.HomeAutomationSystem" />
       <extension name="coverage">
@@ -337,7 +350,13 @@
       <workItem from="1746623000469" duration="6710000" />
       <workItem from="1746667732275" duration="6278000" />
       <workItem from="1746705524859" duration="758000" />
-      <workItem from="1746706297211" duration="1429000" />
+      <workItem from="1746706297211" duration="6059000" />
+      <workItem from="1746774199591" duration="14000" />
+      <workItem from="1746774221227" duration="269000" />
+      <workItem from="1746774497805" duration="128000" />
+      <workItem from="1746774628145" duration="4331000" />
+      <workItem from="1747140678930" duration="16038000" />
+      <workItem from="1747273903998" duration="550000" />
     </task>
     <servers />
   </component>

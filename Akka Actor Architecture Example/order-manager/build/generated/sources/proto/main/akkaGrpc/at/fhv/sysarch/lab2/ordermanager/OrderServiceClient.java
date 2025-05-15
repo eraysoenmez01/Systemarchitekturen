@@ -109,7 +109,7 @@ public abstract class OrderServiceClient extends OrderServiceClientPowerApi impl
   
   
 )
-            .setFullMethodName(MethodDescriptor.generateFullMethodName("at.fhv.sysarch.lab2.ordermanager.OrderService", "PlaceOrder"))
+            .setFullMethodName(MethodDescriptor.generateFullMethodName("OrderService", "PlaceOrder"))
             .setRequestMarshaller(new ProtoMarshaller<at.fhv.sysarch.lab2.ordermanager.OrderRequest>(OrderRequestSerializer))
             .setResponseMarshaller(new ProtoMarshaller<at.fhv.sysarch.lab2.ordermanager.OrderReply>(OrderReplySerializer))
             .setSampledToLocalTracing(true)

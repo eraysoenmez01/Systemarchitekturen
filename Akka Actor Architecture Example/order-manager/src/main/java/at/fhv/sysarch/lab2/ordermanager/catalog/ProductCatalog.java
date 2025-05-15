@@ -19,6 +19,10 @@ public class ProductCatalog {
     }
 
     public static double getUnitPrice(String name) {
-        return unitPrices.getOrDefault(name.toLowerCase(), 1.0);
+        Double price = unitPrices.get(name.toLowerCase());
+        if (price == null) {
+            throw new IllegalArgumentException("Produkt nicht im Katalog vorhanden: " + name);
+        }
+        return price;
     }
 }

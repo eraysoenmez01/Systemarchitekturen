@@ -7,6 +7,7 @@ import akka.actor.typed.javadsl.*;
 import at.fhv.sysarch.lab2.homeautomation.devices.env.EnvironmentManager;
 import at.fhv.sysarch.lab2.homeautomation.devices.MediaStation;
 import at.fhv.sysarch.lab2.homeautomation.devices.fridge.Fridge;
+import at.fhv.sysarch.lab2.homeautomation.devices.fridge.Receipt;
 
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ public class UI extends AbstractBehavior<Void> {
     private final ActorRef<EnvironmentManager.EnvironmentCommand> envManager;
     private final ActorRef<MediaStation.MediaCommand> mediaStation;
     private final ActorRef<Fridge.FridgeCommand> fridge;
+    private final ActorRef<Receipt> receiptAdapter;
 
     public static Behavior<Void> create(
             ActorRef<EnvironmentManager.EnvironmentCommand> envManager,
@@ -32,6 +34,12 @@ public class UI extends AbstractBehavior<Void> {
         this.envManager = envManager;
         this.mediaStation = mediaStation;
         this.fridge = fridge;
+
+        this.receiptAdapter = context.messageAdapter(Receipt.class, receipt -> {
+            System.out.printf("Bestellt: %s x%d für %.2f€\n",
+                    receipt.product(), receipt.amount(), receipt.totalPrice());
+            return null;
+        });
 
         new Thread(this::runCommandLine).start();
 
@@ -91,13 +99,29 @@ public class UI extends AbstractBehavior<Void> {
                     }
                     break;
                 case "consume":
-                    //befehl (consume apfel), nimm 1 apfel weg
                     if (command.length > 1) {
                         String product = command[1];
-                        fridge.tell(new Fridge.ConsumeProduct(product));
-                        System.out.println("Verbrauche: " + product);
+                        int amount = 1; // Standardwert
+                        if (command.length > 2) {
+                            try {
+                                amount = Integer.parseInt(command[2]);
+                            } catch (NumberFormatException e) {
+                                System.out.println("Ungültige Zahl. Verwende Standardwert 1.");
+                            }
+                        }
+                        fridge.tell(new Fridge.ConsumeProduct(product, amount));
+                        System.out.println("Verbrauche: " + amount + " x " + product);
                     } else {
-                        System.out.println("Usage: consume <product>");
+                        System.out.println("Usage: consume <product> [amount]");
+                    }
+                    break;
+                case "order":
+                    if (command.length > 2) {
+                        String product = command[1];
+                        int amount = Integer.parseInt(command[2]);
+                        fridge.tell(new Fridge.OrderProduct(product, amount, receiptAdapter));
+                    } else {
+                        System.out.println("Usage: order <produkt> <anzahl>");
                     }
                     break;
                 default:

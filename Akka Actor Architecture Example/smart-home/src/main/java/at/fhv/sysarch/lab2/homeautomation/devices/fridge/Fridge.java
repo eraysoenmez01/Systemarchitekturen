@@ -3,13 +3,28 @@ package at.fhv.sysarch.lab2.homeautomation.devices.fridge;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.ActorRef;
 import akka.actor.typed.javadsl.Behaviors;
+import akka.actor.typed.javadsl.AbstractBehavior;
+import akka.actor.typed.javadsl.ActorContext;
+import akka.actor.typed.javadsl.Receive;
+import at.fhv.sysarch.lab2.ordermanager.OrderReply;
+import at.fhv.sysarch.lab2.ordermanager.OrderRequest;
+import at.fhv.sysarch.lab2.ordermanager.OrderService;
 
-import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
-
-public class Fridge {
+public class Fridge extends AbstractBehavior<Fridge.FridgeCommand> {
 
     public interface FridgeCommand {}
+
+    private final OrderService orderService;
+
+    public static final class ConsumeProduct implements FridgeCommand {
+        public final String product;
+        public final int amount;
+
+        public ConsumeProduct(String product, int amount) {
+            this.product = product;
+            this.amount = amount;
+        }
+    }
 
     public static final class OrderProduct implements FridgeCommand {
         public final String product;
@@ -23,75 +38,48 @@ public class Fridge {
         }
     }
 
-    public static final class ConsumeProduct implements FridgeCommand {
-        public final String product;
-
-        public ConsumeProduct(String product) {
-            this.product = product;
-        }
+    public static Behavior<FridgeCommand> create(OrderService orderService) {
+        return Behaviors.setup(ctx -> new Fridge(ctx, orderService));
     }
 
-    public static final class GetInventory implements FridgeCommand {
-        public final ActorRef<String> replyTo;
-
-        public GetInventory(ActorRef<String> replyTo) {
-            this.replyTo = replyTo;
-        }
+    private Fridge(ActorContext<FridgeCommand> context, OrderService orderService) {
+        super(context);
+        this.orderService = orderService;
     }
 
-    public static final class GetOrderHistory implements FridgeCommand {
-        public final ActorRef<String> replyTo;
-
-        public GetOrderHistory(ActorRef<String> replyTo) {
-            this.replyTo = replyTo;
-        }
+    @Override
+    public Receive<FridgeCommand> createReceive() {
+        return newReceiveBuilder()
+                .onMessage(OrderProduct.class, this::onOrderProduct)
+                .onMessage(ConsumeProduct.class, this::onConsumeProduct)
+                .build();
     }
 
-    public static Behavior<FridgeCommand> create() {
-        return Behaviors.setup(ctx -> {
+    private Behavior<FridgeCommand> onOrderProduct(OrderProduct msg) {
+        OrderRequest request = OrderRequest.newBuilder()
+                .setName(msg.product)
+                .setAmount(msg.amount)
+                .build();
 
-            Map<String, Integer> inventory = new HashMap<>();
-            List<String> orderHistory = new ArrayList<>();
-            AtomicReference<Double> currentWeight = new AtomicReference<>(0.0);
-            final double maxWeight = 50.0;
-            final int maxProducts = 20;
+        orderService.placeOrder(request)
+                .thenAccept(reply -> {
+                    Receipt receipt = new Receipt(
+                            reply.getName(),
+                            reply.getAmount(),
+                            reply.getUnitPrice(),
+                            reply.getTotalPrice()
+                    );
+                    msg.replyTo.tell(receipt);
+                })
+                .exceptionally(ex -> {
+                    msg.replyTo.tell(new Receipt("Fehler: " + ex.getMessage(), 0, 0.0, 0.0));
+                    return null;
+                });
 
-            return Behaviors.receive(FridgeCommand.class)
-                    .onMessage(OrderProduct.class, msg -> {
-                        int totalItems = inventory.values().stream().mapToInt(i -> i).sum();
-                        if (totalItems + msg.amount > maxProducts) {
-                            msg.replyTo.tell(new Receipt("Nicht genug Platz", 0, 0.0));
-                            return Behaviors.same();
-                        }
+        return this;
+    }
 
-                        // Simulierter Preis statt gRPC-Antwort
-                        double unitPrice = 1.5;
-                        double totalPrice = unitPrice * msg.amount;
-
-                        inventory.merge(msg.product, msg.amount, Integer::sum);
-                        currentWeight.set(currentWeight.get() + totalPrice);
-                        orderHistory.add("Bestellt: " + msg.product + " x" + msg.amount);
-                        msg.replyTo.tell(new Receipt(msg.product, msg.amount, totalPrice));
-
-                        return Behaviors.same();
-                    })
-
-                    .onMessage(ConsumeProduct.class, msg -> {
-                        inventory.computeIfPresent(msg.product, (p, v) -> v > 1 ? v - 1 : null);
-                        return Behaviors.same();
-                    })
-
-                    .onMessage(GetInventory.class, msg -> {
-                        msg.replyTo.tell(inventory.toString());
-                        return Behaviors.same();
-                    })
-
-                    .onMessage(GetOrderHistory.class, msg -> {
-                        msg.replyTo.tell(String.join("\n", orderHistory));
-                        return Behaviors.same();
-                    })
-
-                    .build();
-        });
+    private Behavior<FridgeCommand> onConsumeProduct(ConsumeProduct msg) {
+        return this;
     }
 }
