@@ -12,8 +12,6 @@ public class TemperatureSensor extends AbstractBehavior<TemperatureSensor.Temper
 
     public interface TemperatureCommand {}
 
-    public static final class FetchTemperature implements TemperatureCommand {}
-
     private final ActorRef<EnvironmentManager.EnvironmentCommand> envManager;
     private final ActorRef<AirCondition.AirConditionCommand> airCondition;
 
@@ -39,14 +37,8 @@ public class TemperatureSensor extends AbstractBehavior<TemperatureSensor.Temper
     @Override
     public Receive<TemperatureCommand> createReceive() {
         return newReceiveBuilder()
-                .onMessage(FetchTemperature.class, this::onFetchTemperature)
                 .onMessage(ProvideTemperature.class, this::onProvideTemperature)
                 .build();
-    }
-
-    private Behavior<TemperatureCommand> onFetchTemperature(FetchTemperature cmd) {
-        envManager.tell(new EnvironmentManager.RequestTemperature(getContext().getSelf()));
-        return this;
     }
 
     public static final class ProvideTemperature implements TemperatureCommand {

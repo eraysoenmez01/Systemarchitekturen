@@ -70,7 +70,7 @@ public class MediaStation extends AbstractBehavior<MediaStation.MediaCommand> {
         } else {
             filmRunning = true;
             getContext().getLog().info("Film gestartet.");
-            if (blinds != null && !blindsClosed) {
+            if (blinds != null) {
                 blinds.tell(new Blinds.OverrideBlinds(true));
             }
         }

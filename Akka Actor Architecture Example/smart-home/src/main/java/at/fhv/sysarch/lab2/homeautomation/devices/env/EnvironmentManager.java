@@ -51,19 +51,6 @@ public class EnvironmentManager extends AbstractBehavior<EnvironmentManager.Envi
         }
     }
 
-    public static class RequestTemperature implements EnvironmentCommand {
-        public final ActorRef<TemperatureSensor.TemperatureCommand> replyTo;
-        public RequestTemperature(ActorRef<TemperatureSensor.TemperatureCommand> replyTo) {
-            this.replyTo = replyTo;
-        }
-    }
-
-    public static class RequestWeather implements EnvironmentCommand {
-        public final ActorRef<WeatherSensor.WeatherCommand> replyTo;
-        public RequestWeather(ActorRef<WeatherSensor.WeatherCommand> replyTo) {
-            this.replyTo = replyTo;
-        }
-    }
 
     public static class ToggleInternalMode implements EnvironmentCommand {
         public final boolean enabled;
@@ -94,8 +81,6 @@ public class EnvironmentManager extends AbstractBehavior<EnvironmentManager.Envi
                 .onMessage(InitializeSensors.class, this::onInit)
                 .onMessage(TemperatureUpdate.class, this::onTempUpdate)
                 .onMessage(WeatherUpdate.class, this::onWeatherUpdate)
-                .onMessage(RequestTemperature.class, this::onRequestTemp)
-                .onMessage(RequestWeather.class, this::onRequestWeather)
                 .onMessage(ToggleInternalMode.class, this::onToggleInternal)
                 .onMessage(ToggleExternalMode.class, this::onToggleExternal)
                 .build();
@@ -123,16 +108,6 @@ public class EnvironmentManager extends AbstractBehavior<EnvironmentManager.Envi
         if (weatherSensor != null) {
             weatherSensor.tell(new WeatherSensor.ProvideWeather(currentWeather));
         }
-        return this;
-    }
-
-    private Behavior<EnvironmentCommand> onRequestTemp(RequestTemperature msg) {
-        msg.replyTo.tell(new TemperatureSensor.ProvideTemperature(currentTemperature));
-        return this;
-    }
-
-    private Behavior<EnvironmentCommand> onRequestWeather(RequestWeather msg) {
-        msg.replyTo.tell(new WeatherSensor.ProvideWeather(currentWeather));
         return this;
     }
 

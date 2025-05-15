@@ -15,14 +15,6 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
         }
     }
 
-    public static final class WeatherUpdate implements BlindsCommand {
-        public final String condition;
-
-        public WeatherUpdate(String condition) {
-            this.condition = condition;
-        }
-    }
-
     public static final class SetMediaStation implements BlindsCommand {
         public final ActorRef<MediaStation.MediaCommand> mediaStation;
         public SetMediaStation(ActorRef<MediaStation.MediaCommand> mediaStation) {
@@ -41,7 +33,7 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
     private boolean isClosed = false;
     private boolean forcedByFilm = false;
     private ActorRef<MediaStation.MediaCommand> mediaStation = null;
-    private String lastKnownWeather = "clear";
+    private String lastKnownWeather = "cloudy";
 
     public static Behavior<BlindsCommand> create() {
         return Behaviors.setup(context -> new Blinds(context));
@@ -70,7 +62,7 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
 
         if (forcedByFilm) {
             getContext().getLog().info("Film gestartet – Blinds {}.", isClosed ? "bereits geschlossen" : "werden geschlossen");
-            updateBlindsState(true); // immer schließen
+            updateBlindsState(true);
         } else {
             getContext().getLog().info("Film gestoppt – Blinds werden neu bewertet (film override deaktiviert).");
             return onWeatherInfo(new WeatherInfo(lastKnownWeather));
@@ -79,18 +71,8 @@ public class Blinds extends AbstractBehavior<Blinds.BlindsCommand> {
         return this;
     }
 
-    private void reEvaluateBlinds() {
-        if (forcedByFilm) {
-            updateBlindsState(true); // Immer schließen, wenn Film läuft
-        } else {
-            getContext().getLog().info("Blinds status re-evaluated, last known weather: {}", lastKnownWeather);
-            boolean shouldClose = lastKnownWeather.equalsIgnoreCase("sunny");
-            updateBlindsState(shouldClose);
-        }
-    }
-
     private Behavior<BlindsCommand> onWeatherInfo(WeatherInfo msg) {
-        lastKnownWeather = msg.weather; // wichtig!
+        lastKnownWeather = msg.weather;
         if (!forcedByFilm) {
             boolean shouldClose = msg.weather.equalsIgnoreCase("sunny");
             updateBlindsState(shouldClose);

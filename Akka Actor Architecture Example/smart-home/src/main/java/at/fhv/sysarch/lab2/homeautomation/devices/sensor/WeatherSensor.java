@@ -10,8 +10,6 @@ public class WeatherSensor extends AbstractBehavior<WeatherSensor.WeatherCommand
 
     public interface WeatherCommand {}
 
-    public static final class FetchWeather implements WeatherCommand {}
-
     private final ActorRef<EnvironmentManager.EnvironmentCommand> envManager;
     private final ActorRef<Blinds.BlindsCommand> blinds;
 
@@ -37,14 +35,8 @@ public class WeatherSensor extends AbstractBehavior<WeatherSensor.WeatherCommand
     @Override
     public Receive<WeatherCommand> createReceive() {
         return newReceiveBuilder()
-                .onMessage(FetchWeather.class, this::onFetchWeather)
                 .onMessage(ProvideWeather.class, this::onProvideWeather)
                 .build();
-    }
-
-    private Behavior<WeatherCommand> onFetchWeather(FetchWeather cmd) {
-        envManager.tell(new EnvironmentManager.RequestWeather(getContext().getSelf()));
-        return this;
     }
 
     public static final class ProvideWeather implements WeatherCommand {

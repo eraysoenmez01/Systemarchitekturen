@@ -11,14 +11,6 @@ import at.fhv.sysarch.lab2.homeautomation.utils.FormatUtils;
 public class AirCondition extends AbstractBehavior<AirCondition.AirConditionCommand> {
     public interface AirConditionCommand {}
 
-    public static final class PowerAirCondition implements AirConditionCommand {
-        final Boolean value;
-
-        public PowerAirCondition(Boolean value) {
-            this.value = value;
-        }
-    }
-
     public static final class EnrichedTemperature implements AirConditionCommand {
         Double value;
         String unit;
@@ -29,17 +21,7 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         }
     }
 
-    public static final class PowerMessage implements AirConditionCommand {
-        boolean powerOn;
-
-        public PowerMessage(boolean powerOn) {
-            this.powerOn = powerOn;
-        }
-    }
-
     private final String identifier;
-
-    private boolean powerOn = false;
 
     public AirCondition(ActorContext<AirConditionCommand> context, String identifier) {
         super(context);
@@ -51,35 +33,10 @@ public class AirCondition extends AbstractBehavior<AirCondition.AirConditionComm
         return Behaviors.setup(context -> new AirCondition(context, identifier));
     }
 
-    private Behavior<AirConditionCommand> processPower(PowerMessage powerMessage) {
-        getContext().getLog().info("Aircondition was powered on {}", powerMessage.powerOn);
-        this.powerOn = powerMessage.powerOn;
-        if (!powerOn) {
-            return Behaviors.receive(AirConditionCommand.class)
-                    .onMessage(PowerMessage.class, this::powerOn)
-                    .onSignal(PostStop.class, signal -> onPostStop())
-                    .build();
-        }
-        return Behaviors.same();
-    }
-
-    private Behavior<AirConditionCommand> powerOn(PowerMessage powerMessage) {
-        this.powerOn = powerMessage.powerOn;
-        if (powerOn) {
-            return newReceiveBuilder()
-                    .onMessage(EnrichedTemperature.class, this::onReadTemperature)
-                    .onMessage(PowerMessage.class, this::processPower)
-                    .onSignal(PostStop.class, signal -> onPostStop())
-                    .build();
-        }
-        return Behaviors.same();
-    }
-
     @Override
     public Receive<AirConditionCommand> createReceive() {
         return newReceiveBuilder()
                 .onMessage(EnrichedTemperature.class, this::onReadTemperature)
-                .onMessage(PowerMessage.class, this::processPower)
                 .onSignal(PostStop.class, signal -> onPostStop())
                 .build();
     }
