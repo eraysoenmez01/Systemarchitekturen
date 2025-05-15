@@ -1,46 +1,71 @@
 package at.fhv.sysarch.lab2.homeautomation.devices.sensor;
 
-import akka.actor.typed.*;
-import akka.actor.typed.javadsl.*;
+import akka.actor.typed.Behavior;
+import akka.actor.typed.ActorRef;
+import akka.actor.typed.javadsl.AbstractBehavior;
+import akka.actor.typed.javadsl.ActorContext;
+import akka.actor.typed.javadsl.Behaviors;
+import akka.actor.typed.javadsl.Receive;
+import akka.actor.typed.javadsl.TimerScheduler;
+import akka.actor.typed.javadsl.AskPattern;
+import at.fhv.sysarch.lab2.homeautomation.devices.fridge.Fridge;
 
-public class WeightSensor extends AbstractBehavior<WeightSensor.WeightCommand> {
+import java.time.Duration;
 
-    public interface WeightCommand {}
+public class WeightSensor extends AbstractBehavior<WeightSensor.Command> {
+    public interface Command {}
 
-    public static final class FetchWeight implements WeightCommand {}
+    private enum Tick implements Command { INSTANCE }
 
-    public static final class ProvideWeight implements WeightCommand {
-        public final double weight;
-
-        public ProvideWeight(double weight) {
-            this.weight = weight;
-        }
+    private static final class InventoryResponse implements Command {
+        final Fridge.Inventory inventory;
+        InventoryResponse(Fridge.Inventory inventory) { this.inventory = inventory; }
     }
 
-    public static Behavior<WeightCommand> create() {
-        return Behaviors.setup(WeightSensor::new);
+    private final ActorRef<Fridge.FridgeCommand> fridge;
+    private final TimerScheduler<Command> timers;
+
+    private WeightSensor(ActorContext<Command> ctx,
+                         TimerScheduler<Command> timers,
+                         ActorRef<Fridge.FridgeCommand> fridge) {
+        super(ctx);
+        this.timers = timers;
+        this.fridge = fridge;
+        timers.startTimerAtFixedRate(Tick.INSTANCE, Duration.ofSeconds(5));
     }
 
-    private WeightSensor(ActorContext<WeightCommand> context) {
-        super(context);
-        getContext().getLog().info("WeightSensor started");
+    public static Behavior<Command> create(ActorRef<Fridge.FridgeCommand> fridge) {
+        return Behaviors.setup(ctx ->
+                Behaviors.withTimers(timers ->
+                        new WeightSensor(ctx, timers, fridge)
+                )
+        );
     }
 
     @Override
-    public Receive<WeightCommand> createReceive() {
+    public Receive<Command> createReceive() {
         return newReceiveBuilder()
-                .onMessage(FetchWeight.class, this::onFetchWeight)
-                .onMessage(ProvideWeight.class, this::onProvideWeight)
+                .onMessageEquals(Tick.INSTANCE, this::onTick)
+                .onMessage(InventoryResponse.class, this::onInventory)
                 .build();
     }
 
-    private Behavior<WeightCommand> onFetchWeight(FetchWeight cmd) {
-        // Hier könnte z. B. ein Fridge gefragt werden
+    private Behavior<Command> onTick() {
+        ActorRef<Fridge.Inventory> adapter =
+                getContext().messageAdapter(Fridge.Inventory.class, InventoryResponse::new);
+        AskPattern.<Fridge.FridgeCommand, Fridge.Inventory>ask(
+                fridge,
+                replyTo -> new Fridge.GetInventory(replyTo),
+                Duration.ofSeconds(3),
+                getContext().getSystem().scheduler()
+        ).thenAccept(adapter::tell);
+
         return this;
     }
 
-    private Behavior<WeightCommand> onProvideWeight(ProvideWeight msg) {
-        getContext().getLog().info("Received provided weight: {}", msg.weight);
+    private Behavior<Command> onInventory(InventoryResponse msg) {
+        int used = msg.inventory.items.values().stream().mapToInt(Integer::intValue).sum();
+        fridge.tell(new Fridge.SpaceUpdated(used));
         return this;
     }
 }

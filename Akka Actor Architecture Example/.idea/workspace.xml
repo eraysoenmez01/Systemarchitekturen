@@ -5,42 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50162e5d-2feb-42e7-bd4c-3489acf11e3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/actors/OrderProcessingActor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/SpaceSensor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/sensor/WeightSensor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart-home/src/main/proto/Order.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/generated/sources/proto/main/akkaGrpc/at/fhv/sysarch/lab2/ordermanager/OrderServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/build/resources/main/Order.proto" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/build/resources/main/Order.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/OrderManagingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/OrderManagingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/catalog/ProductCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/catalog/ProductCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/service/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager/src/main/proto/Order.proto" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/proto/Order.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/classes/java/main/at/fhv/sysarch/lab2/homeautomation/ui/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/HomeAutomationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Fridge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/devices/fridge/Receipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/grpc/OrderProcessorClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/src/main/java/at/fhv/sysarch/lab2/homeautomation/ui/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/actors/OrderProcessingActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager/src/main/java/at/fhv/sysarch/lab2/ordermanager/actors/OrderProcessingActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-home/build/tmp/compileJava/compileTransaction/stash-dir/HomeAutomationController.class.uniqueId1" beforeDir="false" afterPath="$PROJECT_DIR$/smart-home/build/tmp/compileJava/compileTransaction/stash-dir/HomeAutomationController.class.uniqueId1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +331,8 @@
       <workItem from="1746774497805" duration="128000" />
       <workItem from="1746774628145" duration="4331000" />
       <workItem from="1747140678930" duration="16038000" />
-      <workItem from="1747273903998" duration="550000" />
+      <workItem from="1747273903998" duration="633000" />
+      <workItem from="1747308653729" duration="746000" />
     </task>
     <servers />
   </component>

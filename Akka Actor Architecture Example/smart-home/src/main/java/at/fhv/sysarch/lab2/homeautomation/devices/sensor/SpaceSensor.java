@@ -1,46 +1,72 @@
 package at.fhv.sysarch.lab2.homeautomation.devices.sensor;
 
-import akka.actor.typed.*;
-import akka.actor.typed.javadsl.*;
+import akka.actor.typed.Behavior;
+import akka.actor.typed.ActorRef;
+import akka.actor.typed.javadsl.AbstractBehavior;
+import akka.actor.typed.javadsl.ActorContext;
+import akka.actor.typed.javadsl.Behaviors;
+import akka.actor.typed.javadsl.Receive;
+import akka.actor.typed.javadsl.TimerScheduler;
+import akka.actor.typed.javadsl.AskPattern;
+import at.fhv.sysarch.lab2.homeautomation.devices.fridge.Fridge;
 
-public class SpaceSensor extends AbstractBehavior<SpaceSensor.SpaceCommand> {
+import java.time.Duration;
 
-    public interface SpaceCommand {}
+public class SpaceSensor extends AbstractBehavior<SpaceSensor.Command> {
+    public interface Command {}
 
-    public static final class FetchSpace implements SpaceCommand {}
+    private enum Tick implements Command { INSTANCE }
 
-    public static final class ProvideSpace implements SpaceCommand {
-        public final int spaceAvailable;
-
-        public ProvideSpace(int spaceAvailable) {
-            this.spaceAvailable = spaceAvailable;
-        }
+    private static final class InventoryResponse implements Command {
+        final Fridge.Inventory inventory;
+        InventoryResponse(Fridge.Inventory inventory) { this.inventory = inventory; }
     }
 
-    public static Behavior<SpaceCommand> create() {
-        return Behaviors.setup(SpaceSensor::new);
+    private final ActorRef<Fridge.FridgeCommand> fridge;
+    private final TimerScheduler<Command> timers;
+
+    private SpaceSensor(ActorContext<Command> ctx,
+                        TimerScheduler<Command> timers,
+                        ActorRef<Fridge.FridgeCommand> fridge) {
+        super(ctx);
+        this.timers = timers;
+        this.fridge = fridge;
+        timers.startTimerAtFixedRate(Tick.INSTANCE, Duration.ofSeconds(5));
     }
 
-    private SpaceSensor(ActorContext<SpaceCommand> context) {
-        super(context);
-        getContext().getLog().info("SpaceSensor started");
+    public static Behavior<Command> create(ActorRef<Fridge.FridgeCommand> fridge) {
+        return Behaviors.setup(ctx ->
+                Behaviors.withTimers(timers ->
+                        new SpaceSensor(ctx, timers, fridge)
+                )
+        );
     }
 
     @Override
-    public Receive<SpaceCommand> createReceive() {
+    public Receive<Command> createReceive() {
         return newReceiveBuilder()
-                .onMessage(FetchSpace.class, this::onFetchSpace)
-                .onMessage(ProvideSpace.class, this::onProvideSpace)
+                .onMessageEquals(Tick.INSTANCE, this::onTick)
+                .onMessage(InventoryResponse.class, this::onInventory)
                 .build();
     }
 
-    private Behavior<SpaceCommand> onFetchSpace(FetchSpace cmd) {
-        // Logik zur Abfrage von Platz im Fridge z. B.
+    private Behavior<Command> onTick() {
+        ActorRef<Fridge.Inventory> adapter =
+                getContext().messageAdapter(Fridge.Inventory.class, InventoryResponse::new);
+
+        AskPattern.<Fridge.FridgeCommand, Fridge.Inventory>ask(
+                fridge,
+                replyTo -> new Fridge.GetInventory(replyTo),
+                Duration.ofSeconds(3),
+                getContext().getSystem().scheduler()
+        ).thenAccept(adapter::tell);
+
         return this;
     }
 
-    private Behavior<SpaceCommand> onProvideSpace(ProvideSpace msg) {
-        getContext().getLog().info("Received provided space: {}", msg.spaceAvailable);
+    private Behavior<Command> onInventory(InventoryResponse msg) {
+        int used = msg.inventory.items.values().stream().mapToInt(Integer::intValue).sum();
+        fridge.tell(new Fridge.SpaceUpdated(used));
         return this;
     }
 }

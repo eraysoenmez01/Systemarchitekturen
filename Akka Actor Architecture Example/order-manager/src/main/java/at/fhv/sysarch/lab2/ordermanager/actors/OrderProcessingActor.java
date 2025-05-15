@@ -1,7 +1,6 @@
 package at.fhv.sysarch.lab2.ordermanager.actors;
 
 import akka.actor.typed.Behavior;
-import akka.actor.typed.ActorRef;
 import akka.actor.typed.javadsl.*;
 import at.fhv.sysarch.lab2.ordermanager.*;
 import at.fhv.sysarch.lab2.ordermanager.catalog.ProductCatalog;
