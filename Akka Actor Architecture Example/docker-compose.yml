@@ -1,0 +1,32 @@
+services:
+  order-manager:
+    build:
+      context: ./order-manager
+      dockerfile: Dockerfile
+    container_name: order-manager
+    ports:
+      - "50051:50051"
+    environment:
+      - BIND_ADDRESS=0.0.0.0
+      - BIND_PORT=50051
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'cat < /dev/null > /dev/tcp/localhost/50051'"]
+      interval: 1s
+      timeout: 1s
+      retries: 5
+
+  smart-home:
+    build:
+      context: ./smart-home
+      dockerfile: Dockerfile
+    container_name: smart-home
+    depends_on:
+      order-manager:
+        condition: service_healthy
+    environment:
+      - ORDER_MANAGER_HOST=order-manager
+      - ORDER_MANAGER_PORT=50051
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    tty: true

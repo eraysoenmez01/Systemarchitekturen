@@ -2,8 +2,12 @@ plugins {
     id 'java'
     id 'application'
     id 'com.google.protobuf' version '0.9.4' // gRPC support
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
-
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 group 'at.fhv.lab2'
 version '1.0-SNAPSHOT'
 
@@ -88,4 +92,11 @@ sourceSets {
 
 tasks.withType(ProcessResources).configureEach {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+
+shadowJar {
+    mergeServiceFiles()
+    append('reference.conf')
+    append('application.conf')
 }

@@ -31,9 +31,14 @@ public class HomeAutomationController extends AbstractBehavior<Void> {
         super(context);
 
         ActorSystem<Void> system = context.getSystem();
+        String host = System.getenv().getOrDefault("ORDER_MANAGER_HOST", "127.0.0.1");
+        int    port = Integer.parseInt(
+                System.getenv().getOrDefault("ORDER_MANAGER_PORT","50051")
+        );
 
-        GrpcClientSettings settings = GrpcClientSettings.connectToServiceAt("127.0.0.1", 50051, system).withTls(false).withDeadline(Duration.ofSeconds(5));
+        GrpcClientSettings settings = GrpcClientSettings.connectToServiceAt(host, port, system).withTls(false).withDeadline(Duration.ofSeconds(5));
         OrderService orderServiceClient = OrderServiceClient.create(settings, system);
+
         //connection check to server
         orderServiceClient.placeOrder(OrderRequest.newBuilder()
                         .setName("eier")

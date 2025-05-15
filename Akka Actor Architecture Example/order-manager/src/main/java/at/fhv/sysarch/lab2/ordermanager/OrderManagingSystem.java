@@ -16,20 +16,26 @@ public class OrderManagingSystem {
         ActorSystem<Void> system = ActorSystem.create(Behaviors.empty(), "OrderSystem");
 
         OrderService service = new OrderServiceImpl(system);
-
         Function<HttpRequest, CompletionStage<HttpResponse>> handler =
                 OrderServiceHandlerFactory.createWithServerReflection(service, system);
 
-        // Configure server with HTTP/2 support
+        // Host & Port aus Env-Vars (bzw. Default localhost/50051)
+        String host = System.getenv().getOrDefault("BIND_ADDRESS", "127.0.0.1");
+        int    port = Integer.parseInt(System.getenv().getOrDefault("BIND_PORT", "50051"));
+
         ServerSettings serverSettings = ServerSettings.create(system.classicSystem())
-                .withHttp2Enabled(true);  // Enable HTTP/2
+                .withHttp2Enabled(true);
 
         Http.get(system)
-                .newServerAt("127.0.0.1", 50051)
+                .newServerAt(host, port)
                 .withSettings(serverSettings)
                 .bind(handler)
                 .thenAccept(binding -> {
-                    System.out.println("gRPC server bound to: " + binding.localAddress());
+                    System.out.println(
+                            "gRPC server bound to: " +
+                                    binding.localAddress().getHostString() + ":" +
+                                    binding.localAddress().getPort()
+                    );
                 })
                 .exceptionally(ex -> {
                     System.err.println("Server binding failed: " + ex.getMessage());

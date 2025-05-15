@@ -16,10 +16,35 @@ import java.util.ArrayList;
 public class Fridge extends AbstractBehavior<Fridge.FridgeCommand> {
 
     public interface FridgeCommand {}
+    private static final int   MAX_SLOTS  = 100;
+    private static final double MAX_WEIGHT = 1000.0;
 
-    // ──────────────────────────────────────────────────────────────────────────────
-    // Commands
-    // ──────────────────────────────────────────────────────────────────────────────
+    // gewicht in kg
+    private static final Map<String, Double> PRODUCT_WEIGHTS = Map.of(
+            "schokolade", 0.2,
+            "eier",        0.07,
+            "kaffee",      0.25,
+            "tee",         0.05,
+            "salz",        0.5,
+            "nudeln",      0.3,
+            "reis",        2.0,
+            "öl",          1.0
+    );
+
+    //initial Kühlschrankinhalt
+    private static final List<String> INITIAL_PRODUCTS = List.of(
+            "schokolade", "eier", "kaffee", "tee",
+            "salz", "nudeln", "reis", "öl"
+    );
+
+
+    private final OrderService orderService;
+    private final Map<String,Integer> inventory = new HashMap<>();
+    private final List<Receipt> receipts = new ArrayList<>();
+    private double lastKnownWeight = 0.0;
+    private int    lastKnownSlots  = 0;
+    private final ActorRef<Receipt> receiptAdapter;
+
 
     public static final class ConsumeProduct implements FridgeCommand {
         public final String product;
@@ -81,65 +106,19 @@ public class Fridge extends AbstractBehavior<Fridge.FridgeCommand> {
         }
     }
 
-    // ──────────────────────────────────────────────────────────────────────────────
-    // Statische Konfiguration
-    // ──────────────────────────────────────────────────────────────────────────────
-
-    /** Echte Produktgewichte (kg pro Einheit) */
-    private static final Map<String, Double> PRODUCT_WEIGHTS = Map.of(
-            "schokolade", 0.2,
-            "eier",        0.07,
-            "kaffee",      0.25,
-            "tee",         0.05,
-            "salz",        0.5,
-            "nudeln",      0.3,
-            "reis",        2.0,
-            "öl",          1.0
-    );
-
-    /** Produkte, die beim Start mit 10 Stück initialisiert werden */
-    private static final List<String> INITIAL_PRODUCTS = List.of(
-            "schokolade", "eier", "kaffee", "tee",
-            "salz", "nudeln", "reis", "öl"
-    );
-
-    /** Maximale Kapazitäten */
-    private static final int   MAX_SLOTS  = 100;
-    private static final double MAX_WEIGHT = 1000.0;
-
-    // ──────────────────────────────────────────────────────────────────────────────
-    // Instanzfelder
-    // ──────────────────────────────────────────────────────────────────────────────
-
-    private final OrderService orderService;
-    private final Map<String,Integer> inventory = new HashMap<>();
-    private final List<Receipt> receipts = new ArrayList<>();
-    private double lastKnownWeight = 0.0;
-    private int    lastKnownSlots  = 0;
-    private final ActorRef<Receipt> receiptAdapter;
-
-    // ──────────────────────────────────────────────────────────────────────────────
-    // Factory
-    // ──────────────────────────────────────────────────────────────────────────────
 
     public static Behavior<FridgeCommand> create(OrderService orderService) {
         return Behaviors.setup(ctx -> {
             Fridge fridge = new Fridge(ctx, orderService);
 
-            // Sensor-Actors starten
             ctx.spawn(WeightSensor.create(ctx.getSelf()), "weightSensor");
             ctx.spawn(SpaceSensor.create(ctx.getSelf()),  "spaceSensor");
 
-            // Initialbestand setzen
             INITIAL_PRODUCTS.forEach(p -> fridge.inventory.put(p, 10));
 
             return fridge;
         });
     }
-
-    // ──────────────────────────────────────────────────────────────────────────────
-    // Konstruktor
-    // ──────────────────────────────────────────────────────────────────────────────
 
     private Fridge(ActorContext<FridgeCommand> context, OrderService orderService) {
         super(context);
@@ -149,10 +128,6 @@ public class Fridge extends AbstractBehavior<Fridge.FridgeCommand> {
                 ReceiptResponse::new
         );
     }
-
-    // ──────────────────────────────────────────────────────────────────────────────
-    // Behavior
-    // ──────────────────────────────────────────────────────────────────────────────
 
     @Override
     public Receive<FridgeCommand> createReceive() {
@@ -167,10 +142,6 @@ public class Fridge extends AbstractBehavior<Fridge.FridgeCommand> {
                 .onMessage(RequestSpace.class,     this::onRequestSpace)
                 .build();
     }
-
-    // ──────────────────────────────────────────────────────────────────────────────
-    // Handler
-    // ──────────────────────────────────────────────────────────────────────────────
 
     private Behavior<FridgeCommand> onOrderProduct(OrderProduct msg) {
         int usedSlots = inventory.values().stream().mapToInt(i -> i).sum();

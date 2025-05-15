@@ -14,10 +14,8 @@ import java.util.Scanner;
 
 public class UI extends AbstractBehavior<UI.UICommand> {
 
-    /** Marker-Interface für alle UI-internen Nachrichten */
     public interface UICommand {}
 
-    /** Wrapper für Fridge.Inventory-Antworten */
     public static final class WrappedInventory implements UICommand {
         public final Map<String, Integer> items;
         public WrappedInventory(Map<String, Integer> items) {
@@ -25,19 +23,16 @@ public class UI extends AbstractBehavior<UI.UICommand> {
         }
     }
 
-    /** Wrapper für Receipt-Antworten */
     public static final class WrappedReceipt implements UICommand {
         public final Receipt receipt;
         public WrappedReceipt(Receipt receipt) { this.receipt = receipt; }
     }
 
-    /** Wrapper für WeightUpdated-Antworten */
     public static final class WrappedWeight implements UICommand {
         public final double totalWeight;
         public WrappedWeight(double totalWeight) { this.totalWeight = totalWeight; }
     }
 
-    /** Wrapper für SpaceUpdated-Antworten */
     public static final class WrappedSpace implements UICommand {
         public final int usedSlots;
         public WrappedSpace(int usedSlots) { this.usedSlots = usedSlots; }
@@ -71,31 +66,26 @@ public class UI extends AbstractBehavior<UI.UICommand> {
         this.mediaStation = mediaStation;
         this.fridge       = fridge;
 
-        // Adapter für Receipt
         this.receiptAdapter = context.messageAdapter(
                 Receipt.class,
                 WrappedReceipt::new
         );
 
-        // Adapter für Inventory
         this.inventoryAdapter = context.messageAdapter(
                 Fridge.Inventory.class,
                 inv -> new WrappedInventory(inv.items)
         );
 
-        // Adapter für Gewichtsmessung
         this.weightAdapter = context.messageAdapter(
                 Fridge.WeightUpdated.class,
                 msg -> new WrappedWeight(msg.totalWeight)
         );
 
-        // Adapter für Platzmessung
         this.spaceAdapter = context.messageAdapter(
                 Fridge.SpaceUpdated.class,
                 msg -> new WrappedSpace(msg.usedSlots)
         );
 
-        // CLI-Thread starten
         new Thread(this::runCommandLine).start();
         getContext().getLog().info("UI started");
     }
