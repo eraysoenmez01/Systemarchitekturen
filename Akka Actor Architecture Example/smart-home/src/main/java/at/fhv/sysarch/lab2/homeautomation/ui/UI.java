@@ -16,6 +16,15 @@ public class UI extends AbstractBehavior<UI.UICommand> {
 
     public interface UICommand {}
 
+    private final ActorRef<EnvironmentManager.EnvironmentCommand> envManager;
+    private final ActorRef<MediaStation.MediaCommand> mediaStation;
+    private final ActorRef<Fridge.FridgeCommand> fridge;
+
+    private final ActorRef<Fridge.Inventory> inventoryAdapter;
+    private final ActorRef<Receipt> receiptAdapter;
+    private final ActorRef<Fridge.WeightUpdated> weightAdapter;
+    private final ActorRef<Fridge.SpaceUpdated>  spaceAdapter;
+
     public static final class WrappedInventory implements UICommand {
         public final Map<String, Integer> items;
         public WrappedInventory(Map<String, Integer> items) {
@@ -37,15 +46,6 @@ public class UI extends AbstractBehavior<UI.UICommand> {
         public final int usedSlots;
         public WrappedSpace(int usedSlots) { this.usedSlots = usedSlots; }
     }
-
-    private final ActorRef<EnvironmentManager.EnvironmentCommand> envManager;
-    private final ActorRef<MediaStation.MediaCommand> mediaStation;
-    private final ActorRef<Fridge.FridgeCommand> fridge;
-
-    private final ActorRef<Fridge.Inventory> inventoryAdapter;
-    private final ActorRef<Receipt> receiptAdapter;
-    private final ActorRef<Fridge.WeightUpdated> weightAdapter;
-    private final ActorRef<Fridge.SpaceUpdated>  spaceAdapter;
 
     public static Behavior<UICommand> create(
             ActorRef<EnvironmentManager.EnvironmentCommand> envManager,

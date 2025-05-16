@@ -165,8 +165,7 @@ public class Fridge extends AbstractBehavior<Fridge.FridgeCommand> {
         orderService.placeOrder(request)
                 .thenAccept(reply -> {
                     Receipt receipt = new Receipt(
-                            reply.getName(), reply.getAmount(),
-                            reply.getUnitPrice(), reply.getTotalPrice()
+                            reply.getName(), reply.getAmount(), reply.getUnitPrice(), reply.getTotalPrice()
                     );
                     receipts.add(receipt);
                     inventory.merge(msg.product, msg.amount, Integer::sum);

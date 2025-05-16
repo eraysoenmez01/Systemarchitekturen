@@ -45,6 +45,7 @@ public class OrderProcessingActor extends AbstractBehavior<OrderProcessingActor.
         String name = msg.request.getName();
         int amount = msg.request.getAmount();
         double unitPrice = catalog.getUnitPrice(name);
+        //berechnung
         double total = unitPrice * amount;
 
         OrderReply reply = OrderReply.newBuilder()

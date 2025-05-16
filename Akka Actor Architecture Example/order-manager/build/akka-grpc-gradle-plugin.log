@@ -1,4 +1,0 @@
-[info] Generating Akka gRPC service interface for [at.fhv.sysarch.lab2.ordermanager.OrderService]
-[info] Generating Akka gRPC Client [at.fhv.sysarch.lab2.ordermanager.OrderService]
-[info] Generating Akka gRPC Lifted Client interface[at.fhv.sysarch.lab2.ordermanager.OrderService]
-[info] Generating Akka gRPC service handler for at.fhv.sysarch.lab2.ordermanager.OrderService
