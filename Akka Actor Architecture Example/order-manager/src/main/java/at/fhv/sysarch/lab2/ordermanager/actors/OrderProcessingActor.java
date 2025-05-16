@@ -55,6 +55,6 @@ public class OrderProcessingActor extends AbstractBehavior<OrderProcessingActor.
                 .build();
 
         future.complete(reply);
-        return Behaviors.stopped(); // einmaliger Actor, danach stoppen
+        return Behaviors.stopped();
     }
 }

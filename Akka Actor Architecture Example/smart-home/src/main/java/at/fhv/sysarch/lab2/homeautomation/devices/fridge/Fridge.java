@@ -138,7 +138,7 @@ public class Fridge extends AbstractBehavior<Fridge.FridgeCommand> {
                 .onMessage(SpaceUpdated.class,    this::onSpaceUpdated)
                 .onMessage(GetInventory.class,    this::onGetInventory)
                 .onMessage(ReceiptResponse.class, this::onReceiptResponse)
-                .onMessage(RequestWeight.class,    this::onRequestWeight)   // ← neu
+                .onMessage(RequestWeight.class,    this::onRequestWeight)
                 .onMessage(RequestSpace.class,     this::onRequestSpace)
                 .build();
     }

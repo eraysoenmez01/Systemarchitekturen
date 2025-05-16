@@ -19,7 +19,6 @@ public class OrderManagingSystem {
         Function<HttpRequest, CompletionStage<HttpResponse>> handler =
                 OrderServiceHandlerFactory.createWithServerReflection(service, system);
 
-        // Host & Port aus Env-Vars (bzw. Default localhost/50051)
         String host = System.getenv().getOrDefault("BIND_ADDRESS", "127.0.0.1");
         int    port = Integer.parseInt(System.getenv().getOrDefault("BIND_PORT", "50051"));
 
